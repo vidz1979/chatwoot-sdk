@@ -4,6 +4,9 @@
 name: Publish on GitHub Packages.
 
 on:
+  push:
+    branches:
+      - release
   release:
     types: [created]
 
