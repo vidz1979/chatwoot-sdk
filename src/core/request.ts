@@ -212,7 +212,6 @@ const sendRequest = async <T>(
     formData: FormData | undefined,
     headers: Record<string, string>,
 ): Promise<AxiosResponse<T>> => {
-    const source = axios.CancelToken.source();
 
     const requestConfig: AxiosRequestConfig = {
         url,
@@ -220,7 +219,6 @@ const sendRequest = async <T>(
         data: body ?? formData,
         method: options.method,
         withCredentials: config.with_credentials,
-        cancelToken: source.token,
     };
 
     try {
