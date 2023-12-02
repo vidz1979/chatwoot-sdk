@@ -4,7 +4,6 @@
 import type { webhook } from "../models/webhook";
 import type { webhook_create_update_payload } from "../models/webhook_create_update_payload";
 
-import type { CancelablePromise } from "../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
 
@@ -28,7 +27,7 @@ export class Webhooks {
          * The numeric ID of the account
          */
         accountId: number;
-    }): CancelablePromise<Array<webhook>> {
+    }): Promise<Array<webhook>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/webhooks",
@@ -56,7 +55,7 @@ export class Webhooks {
          */
         accountId: number;
         data: webhook_create_update_payload;
-    }): CancelablePromise<webhook> {
+    }): Promise<webhook> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/webhooks",
@@ -90,7 +89,7 @@ export class Webhooks {
          */
         webhookId: number;
         data: webhook_create_update_payload;
-    }): CancelablePromise<webhook> {
+    }): Promise<webhook> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/webhooks/{webhook_id}",
@@ -123,7 +122,7 @@ export class Webhooks {
          * The numeric ID of the webhook
          */
         webhookId: number;
-    }): CancelablePromise<any> {
+    }): Promise<any> {
         return __request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/webhooks/{webhook_id}",

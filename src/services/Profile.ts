@@ -3,7 +3,6 @@
 /* eslint-disable */
 import type { user } from "../models/user";
 
-import type { CancelablePromise } from "../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
 
@@ -20,7 +19,7 @@ export class Profile {
      * @returns user Success
      * @throws ApiError
      */
-    public profile(): CancelablePromise<user> {
+    public profile(): Promise<user> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/profile",

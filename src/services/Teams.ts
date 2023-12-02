@@ -5,7 +5,6 @@ import type { agent } from "../models/agent";
 import type { team } from "../models/team";
 import type { team_create_update_payload } from "../models/team_create_update_payload";
 
-import type { CancelablePromise } from "../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
 
@@ -29,7 +28,7 @@ export class Teams {
          * The numeric ID of the account
          */
         accountId: number;
-    }): CancelablePromise<Array<team>> {
+    }): Promise<Array<team>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/teams",
@@ -57,7 +56,7 @@ export class Teams {
          */
         accountId: number;
         data: team_create_update_payload;
-    }): CancelablePromise<team> {
+    }): Promise<team> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/teams",
@@ -89,7 +88,7 @@ export class Teams {
          * The ID of the team to be updated
          */
         teamId: number;
-    }): CancelablePromise<team> {
+    }): Promise<team> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/teams/{team_id}",
@@ -124,7 +123,7 @@ export class Teams {
          */
         teamId: number;
         data: team_create_update_payload;
-    }): CancelablePromise<team> {
+    }): Promise<team> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/teams/{team_id}",
@@ -157,7 +156,7 @@ export class Teams {
          * The ID of the team to be updated
          */
         teamId: number;
-    }): CancelablePromise<any> {
+    }): Promise<any> {
         return __request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/teams/{team_id}",
@@ -190,7 +189,7 @@ export class Teams {
          * The ID of the team to be updated
          */
         teamId: number;
-    }): CancelablePromise<Array<agent>> {
+    }): Promise<Array<agent>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/accounts/{account_id}/teams/{team_id}/team_members",
@@ -230,7 +229,7 @@ export class Teams {
              */
             user_ids: Array<number>;
         };
-    }): CancelablePromise<Array<agent>> {
+    }): Promise<Array<agent>> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/accounts/{account_id}/teams/{team_id}/team_members",
@@ -272,7 +271,7 @@ export class Teams {
              */
             user_ids: Array<number>;
         };
-    }): CancelablePromise<Array<agent>> {
+    }): Promise<Array<agent>> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/accounts/{account_id}/teams/{team_id}/team_members",
@@ -314,7 +313,7 @@ export class Teams {
              */
             user_ids: Array<number>;
         };
-    }): CancelablePromise<any> {
+    }): Promise<any> {
         return __request(this.chatwootAPI, {
             method: "DELETE",
             url: "/accounts/{account_id}/teams/{team_id}/team_members",

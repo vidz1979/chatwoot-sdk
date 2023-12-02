@@ -4,7 +4,6 @@
 import type { user } from "../../models/user";
 import type { user_create_update_payload } from "../../models/user_create_update_payload";
 
-import type { CancelablePromise } from "../../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../../core/ChatwootAPI";
 import { request as __request } from "../../core/request";
 
@@ -21,7 +20,7 @@ export class Users {
      * @returns user Success
      * @throws ApiError
      */
-    public create({ data }: { data: user_create_update_payload }): CancelablePromise<user> {
+    public create({ data }: { data: user_create_update_payload }): Promise<user> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/platform/api/v1/users",
@@ -45,7 +44,7 @@ export class Users {
          * The numeric ID of the user on the platform
          */
         id: number;
-    }): CancelablePromise<user> {
+    }): Promise<user> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/platform/api/v1/users/{id}",
@@ -74,7 +73,7 @@ export class Users {
          */
         id: number;
         data: user_create_update_payload;
-    }): CancelablePromise<user> {
+    }): Promise<user> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/platform/api/v1/users/{id}",
@@ -101,7 +100,7 @@ export class Users {
          * The numeric ID of the user on the platform
          */
         id: number;
-    }): CancelablePromise<any> {
+    }): Promise<any> {
         return __request(this.chatwootAPI, {
             method: "DELETE",
             url: "/platform/api/v1/users/{id}",
@@ -128,7 +127,7 @@ export class Users {
          * The numeric ID of the user on the platform
          */
         id: number;
-    }): CancelablePromise<{
+    }): Promise<{
         /**
          * SSO url to autenticate the user
          */

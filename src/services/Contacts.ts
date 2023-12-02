@@ -7,7 +7,6 @@ import type { contact_list } from "../models/contact_list";
 import type { contact_update } from "../models/contact_update";
 import type { extended_contact } from "../models/extended_contact";
 
-import type { CancelablePromise } from "../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
 
@@ -50,7 +49,7 @@ export class Contacts {
          * The page parameter
          */
         page?: number;
-    }): CancelablePromise<contact_list> {
+    }): Promise<contact_list> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/contacts",
@@ -83,7 +82,7 @@ export class Contacts {
          */
         accountId: number;
         data: contact_create;
-    }): CancelablePromise<extended_contact> {
+    }): Promise<extended_contact> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/contacts",
@@ -116,7 +115,7 @@ export class Contacts {
          * ID of the contact
          */
         id: number;
-    }): CancelablePromise<extended_contact> {
+    }): Promise<extended_contact> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/contacts/{id}",
@@ -152,7 +151,7 @@ export class Contacts {
          */
         id: number;
         data: contact_update;
-    }): CancelablePromise<void> {
+    }): Promise<void> {
         return __request(this.chatwootAPI, {
             method: "PUT",
             url: "/api/v1/accounts/{account_id}/contacts/{id}",
@@ -186,7 +185,7 @@ export class Contacts {
          * ID of the contact
          */
         id: number;
-    }): CancelablePromise<any> {
+    }): Promise<any> {
         return __request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/contacts/{id}",
@@ -220,7 +219,7 @@ export class Contacts {
          * ID of the contact
          */
         id: number;
-    }): CancelablePromise<contact_conversations> {
+    }): Promise<contact_conversations> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/contacts/{id}/conversations",
@@ -272,7 +271,7 @@ export class Contacts {
          * The page parameter
          */
         page?: number;
-    }): CancelablePromise<{
+    }): Promise<{
         payload?: contact_list;
     }> {
         return __request(this.chatwootAPI, {
@@ -327,7 +326,7 @@ export class Contacts {
             query_operator?: "AND" | "OR";
         }>;
         page?: number;
-    }): CancelablePromise<contact_list> {
+    }): Promise<contact_list> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/contacts/filter",

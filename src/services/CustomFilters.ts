@@ -4,7 +4,6 @@
 import type { custom_filter } from "../models/custom_filter";
 import type { custom_filter_create_update_payload } from "../models/custom_filter_create_update_payload";
 
-import type { CancelablePromise } from "../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
 
@@ -34,7 +33,7 @@ export class CustomFilters {
          * The type of custom filter
          */
         filterType?: "conversation" | "contact" | "report";
-    }): CancelablePromise<Array<custom_filter>> {
+    }): Promise<Array<custom_filter>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/custom_filters",
@@ -71,7 +70,7 @@ export class CustomFilters {
          * The type of custom filter
          */
         filterType?: "conversation" | "contact" | "report";
-    }): CancelablePromise<custom_filter> {
+    }): Promise<custom_filter> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/custom_filters",
@@ -107,7 +106,7 @@ export class CustomFilters {
          * The numeric ID of the custom filter
          */
         customFilterId: number;
-    }): CancelablePromise<custom_filter> {
+    }): Promise<custom_filter> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/custom_filters/{custom_filter_id}",
@@ -143,7 +142,7 @@ export class CustomFilters {
          */
         customFilterId: number;
         data: custom_filter_create_update_payload;
-    }): CancelablePromise<custom_filter> {
+    }): Promise<custom_filter> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/custom_filters/{custom_filter_id}",
@@ -177,7 +176,7 @@ export class CustomFilters {
          * The numeric ID of the custom filter
          */
         customFilterId: number;
-    }): CancelablePromise<any> {
+    }): Promise<any> {
         return __request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/custom_filters/{custom_filter_id}",

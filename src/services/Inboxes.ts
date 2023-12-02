@@ -5,7 +5,6 @@ import type { agent } from "../models/agent";
 import type { inbox } from "../models/inbox";
 import type { agent_bot } from "../models/agent_bot";
 
-import type { CancelablePromise } from "../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
 
@@ -30,7 +29,7 @@ export class Inboxes {
          * The numeric ID of the account
          */
         accountId: number;
-    }): CancelablePromise<Array<inbox>> {
+    }): Promise<Array<inbox>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/inboxes",
@@ -63,7 +62,7 @@ export class Inboxes {
          * ID of the inbox
          */
         id: number;
-    }): CancelablePromise<inbox> {
+    }): Promise<inbox> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/inboxes/{id}/",
@@ -126,7 +125,7 @@ export class Inboxes {
                 widget_color?: string;
             };
         };
-    }): CancelablePromise<inbox> {
+    }): Promise<inbox> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/inboxes/",
@@ -197,7 +196,7 @@ export class Inboxes {
                 widget_color?: string;
             };
         };
-    }): CancelablePromise<inbox> {
+    }): Promise<inbox> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/inboxes/{id}",
@@ -232,7 +231,7 @@ export class Inboxes {
          * ID of the inbox
          */
         id: number;
-    }): CancelablePromise<agent_bot> {
+    }): Promise<agent_bot> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/inboxes/{id}/agent_bot",
@@ -273,7 +272,7 @@ export class Inboxes {
              */
             agent_bot: number;
         };
-    }): CancelablePromise<{ agent_bot: number }> {
+    }): Promise<{ agent_bot: number }> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/inboxes/{id}/set_agent_bot",
@@ -307,7 +306,7 @@ export class Inboxes {
          * The ID of the Inbox
          */
         inboxId: number;
-    }): CancelablePromise<Array<agent>> {
+    }): Promise<Array<agent>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/inbox_members/{inbox_id}",
@@ -351,7 +350,7 @@ export class Inboxes {
              */
             user_ids: Array<number>;
         };
-    }): CancelablePromise<any> {
+    }): Promise<any> {
         return __request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/inbox_members/{inbox_id}",
@@ -392,7 +391,7 @@ export class Inboxes {
              */
             user_ids: Array<number>;
         };
-    }): CancelablePromise<Array<agent>> {
+    }): Promise<Array<agent>> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/inbox_members",
@@ -432,7 +431,7 @@ export class Inboxes {
              */
             user_ids: Array<number>;
         };
-    }): CancelablePromise<Array<agent>> {
+    }): Promise<Array<agent>> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/inbox_members",

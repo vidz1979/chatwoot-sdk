@@ -8,8 +8,6 @@ import FormData from "form-data";
 import { ApiError } from "./ApiError";
 import type { ApiRequestOptions } from "./ApiRequestOptions";
 import type { ApiResult } from "./ApiResult";
-import { CancelablePromise } from "./CancelablePromise";
-import type { OnCancel } from "./CancelablePromise";
 import type { ChatwootAPIConfig } from "./ChatwootAPI";
 import { file_upload } from "../models/file_upload";
 
@@ -213,7 +211,6 @@ const sendRequest = async <T>(
     body: any,
     formData: FormData | undefined,
     headers: Record<string, string>,
-    onCancel: OnCancel
 ): Promise<AxiosResponse<T>> => {
     const source = axios.CancelToken.source();
 
@@ -225,8 +222,6 @@ const sendRequest = async <T>(
         withCredentials: config.with_credentials,
         cancelToken: source.token,
     };
-
-    onCancel(() => source.cancel("The user aborted a request."));
 
     try {
         return await axios.request(requestConfig);
@@ -282,34 +277,32 @@ const catchErrorCodes = (options: ApiRequestOptions, result: ApiResult): void =>
  * Request method
  * @param config The OpenAPI configuration object
  * @param options The request options from the service
- * @returns CancelablePromise<T>
+ * @returns Promise<T>
  * @throws ApiError
  */
-export const request = <T>(config: ChatwootAPIConfig, options: ApiRequestOptions): CancelablePromise<T> => {
-    return new CancelablePromise(async (resolve, reject, onCancel) => {
+export const request = <T>(config: ChatwootAPIConfig, options: ApiRequestOptions): Promise<T> => {
+    return new Promise(async (resolve, reject) => {
         try {
             const url = getUrl(config, options);
             const formData = getFormData(options);
             const body = getRequestBody(options);
             const headers = await getHeaders(config, options, formData);
-
-            if (!onCancel.isCancelled) {
-                const response = await sendRequest<T>(config, options, url, body, formData, headers, onCancel);
-                const responseBody = getResponseBody(response);
-                const responseHeader = getResponseHeader(response, options.responseHeader);
-
-                const result: ApiResult = {
-                    url,
-                    ok: isSuccess(response.status),
-                    status: response.status,
-                    statusText: response.statusText,
-                    body: responseHeader ?? responseBody,
-                };
-
-                catchErrorCodes(options, result);
-
-                resolve(result.body);
-            }
+            
+            const response = await sendRequest<T>(config, options, url, body, formData, headers);
+            const responseBody = getResponseBody(response);
+            const responseHeader = getResponseHeader(response, options.responseHeader);
+            
+            const result: ApiResult = {
+                url,
+                ok: isSuccess(response.status),
+                status: response.status,
+                statusText: response.statusText,
+                body: responseHeader ?? responseBody,
+            };
+            
+            catchErrorCodes(options, result);
+            
+            resolve(result.body);
         } catch (error) {
             reject(error);
         }

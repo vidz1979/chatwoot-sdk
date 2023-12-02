@@ -6,7 +6,6 @@ import type { conversation_list } from "../models/conversation_list";
 import type { conversation_show } from "../models/conversation_show";
 import type { conversation_status_toggle } from "../models/conversation_status_toggle";
 
-import type { CancelablePromise } from "../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
 
@@ -47,7 +46,7 @@ export class Conversations {
         inboxId?: number;
         teamId?: number;
         labels?: Array<string>;
-    }): CancelablePromise<{
+    }): Promise<{
         meta?: {
             mine_count?: number;
             unassigned_count?: number;
@@ -114,7 +113,7 @@ export class Conversations {
          * paginate through conversations
          */
         page?: number;
-    }): CancelablePromise<conversation_list> {
+    }): Promise<conversation_list> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/conversations",
@@ -187,7 +186,7 @@ export class Conversations {
              */
             team_id?: string;
         };
-    }): CancelablePromise<Pick<conversation, "id" | "account_id" | "inbox_id">> {
+    }): Promise<Pick<conversation, "id" | "account_id" | "inbox_id">> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/conversations",
@@ -236,7 +235,7 @@ export class Conversations {
             query_operator?: "AND" | "OR";
         }>;
         page?: number;
-    }): CancelablePromise<conversation_list> {
+    }): Promise<conversation_list> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/conversations/filter",
@@ -274,7 +273,7 @@ export class Conversations {
          * The numeric ID of the conversation
          */
         conversationId: number;
-    }): CancelablePromise<conversation_show> {
+    }): Promise<conversation_show> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}",
@@ -315,7 +314,7 @@ export class Conversations {
              */
             status: "open" | "resolved" | "pending";
         };
-    }): CancelablePromise<conversation_status_toggle> {
+    }): Promise<conversation_status_toggle> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}/toggle_status",

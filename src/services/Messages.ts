@@ -6,7 +6,6 @@ import type { conversation_message_update } from "../models/conversation_message
 import type { generic_id } from "../models/generic_id";
 import type { message } from "../models/message";
 
-import type { CancelablePromise } from "../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
 import { Blob } from "buffer";
@@ -41,7 +40,7 @@ export class Messages {
          * The numeric ID of the conversation
          */
         conversationId: number;
-    }): CancelablePromise<Array<generic_id & message>> {
+    }): Promise<Array<generic_id & message>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}/messages",
@@ -79,7 +78,7 @@ export class Messages {
         /**
          * The payload as {@link conversation_message_create}
          */
-    }): CancelablePromise<generic_id & message> {
+    }): Promise<generic_id & message> {
         const { attachments, ...clone } = data;
         let files: file_upload[] | undefined;
         if (attachments) {
@@ -139,7 +138,7 @@ export class Messages {
          * The numeric ID of the message
          */
         messageId: number;
-    }): CancelablePromise<generic_id & message> {
+    }): Promise<generic_id & message> {
         const { attachments, ...clone } = data;
         let files: file_upload[] | undefined;
         if (attachments) {
@@ -194,7 +193,7 @@ export class Messages {
          * The numeric ID of the message
          */
         messageId: number;
-    }): CancelablePromise<any> {
+    }): Promise<any> {
         return __request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}/messages/{message_id}",

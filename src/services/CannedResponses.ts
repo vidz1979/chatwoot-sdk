@@ -4,7 +4,6 @@
 import type { canned_response } from "../models/canned_response";
 import type { canned_response_create_update_payload } from "../models/canned_response_create_update_payload";
 
-import type { CancelablePromise } from "../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
 
@@ -28,7 +27,7 @@ export class CannedResponses {
          * The numeric ID of the account
          */
         accountId: number;
-    }): CancelablePromise<Array<canned_response>> {
+    }): Promise<Array<canned_response>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/canned_responses",
@@ -56,7 +55,7 @@ export class CannedResponses {
          */
         accountId: number;
         data: canned_response_create_update_payload;
-    }): CancelablePromise<canned_response> {
+    }): Promise<canned_response> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/canned_responses",
@@ -89,7 +88,7 @@ export class CannedResponses {
          */
         id: number;
         data: canned_response_create_update_payload;
-    }): CancelablePromise<canned_response> {
+    }): Promise<canned_response> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/canned_responses/{id}",
@@ -122,7 +121,7 @@ export class CannedResponses {
          * The ID of the canned response to be deleted
          */
         id: number;
-    }): CancelablePromise<any> {
+    }): Promise<any> {
         return __request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/canned_responses/{id}",

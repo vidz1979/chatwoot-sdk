@@ -1,5 +1,4 @@
 export { ApiError } from "./core/ApiError";
-export { CancelablePromise, CancelError } from "./core/CancelablePromise";
 export { ChatwootAPI } from "./core/ChatwootAPI";
 export type { ChatwootAPIConfig } from "./core/ChatwootAPI";
 
