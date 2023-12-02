@@ -3,7 +3,6 @@
 /* eslint-disable */
 import type { agent } from "../models/agent";
 
-import type { CancelablePromise } from "../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
 
@@ -27,7 +26,7 @@ export class Agents {
          * The numeric ID of the account
          */
         accountId: number;
-    }): CancelablePromise<Array<agent>> {
+    }): Promise<Array<agent>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/agents",
@@ -76,7 +75,7 @@ export class Agents {
              */
             auto_offline?: boolean;
         };
-    }): CancelablePromise<agent> {
+    }): Promise<agent> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/agents",
@@ -123,7 +122,7 @@ export class Agents {
              */
             auto_offline?: boolean;
         };
-    }): CancelablePromise<agent> {
+    }): Promise<agent> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/agents/{id}",
@@ -157,7 +156,7 @@ export class Agents {
          * The ID of the agent to be deleted
          */
         id: number;
-    }): CancelablePromise<any> {
+    }): Promise<any> {
         return __request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/agents/{id}",

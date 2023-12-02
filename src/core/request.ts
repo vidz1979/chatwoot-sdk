@@ -282,10 +282,10 @@ const catchErrorCodes = (options: ApiRequestOptions, result: ApiResult): void =>
  * Request method
  * @param config The OpenAPI configuration object
  * @param options The request options from the service
- * @returns CancelablePromise<T>
+ * @returns Promise<T>
  * @throws ApiError
  */
-export const request = <T>(config: ChatwootAPIConfig, options: ApiRequestOptions): CancelablePromise<T> => {
+export const request = <T>(config: ChatwootAPIConfig, options: ApiRequestOptions): Promise<T> => {
     return new CancelablePromise(async (resolve, reject, onCancel) => {
         try {
             const url = getUrl(config, options);

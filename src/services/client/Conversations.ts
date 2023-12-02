@@ -3,7 +3,6 @@
 /* eslint-disable */
 import type { public_conversation } from "../../models/public_conversation";
 
-import type { CancelablePromise } from "../../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../../core/ChatwootAPI";
 import { request as __request } from "../../core/request";
 
@@ -32,7 +31,7 @@ export class ConversationsApi {
          * The source id of contact obtained on contact create
          */
         contactIdentifier: string;
-    }): CancelablePromise<public_conversation> {
+    }): Promise<public_conversation> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts/{contact_identifier}/conversations",
@@ -64,7 +63,7 @@ export class ConversationsApi {
          * The source id of contact obtained on contact create
          */
         contactIdentifier: string;
-    }): CancelablePromise<Array<public_conversation>> {
+    }): Promise<Array<public_conversation>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts/{contact_identifier}/conversations",

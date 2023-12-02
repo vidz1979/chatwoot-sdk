@@ -4,7 +4,6 @@
 import type { contact_inboxes } from "../models/contact_inboxes";
 import type { contactable_inboxes } from "../models/contactable_inboxes";
 
-import type { CancelablePromise } from "../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
 
@@ -44,7 +43,7 @@ export class Contact {
              */
             source_id?: string;
         };
-    }): CancelablePromise<contact_inboxes> {
+    }): Promise<contact_inboxes> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/contacts/{id}/contact_inboxes",
@@ -78,7 +77,7 @@ export class Contact {
          * ID of the contact
          */
         id: number;
-    }): CancelablePromise<contactable_inboxes> {
+    }): Promise<contactable_inboxes> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/contacts/{id}/contactable_inboxes",

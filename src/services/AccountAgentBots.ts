@@ -4,7 +4,6 @@
 import type { agent_bot } from "../models/agent_bot";
 import type { agent_bot_create_update_payload } from "../models/agent_bot_create_update_payload";
 
-import type { CancelablePromise } from "../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
 
@@ -28,7 +27,7 @@ export class AccountAgentBots {
          * The numeric ID of the account
          */
         accountId: number;
-    }): CancelablePromise<Array<agent_bot>> {
+    }): Promise<Array<agent_bot>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/agent_bots",
@@ -56,7 +55,7 @@ export class AccountAgentBots {
          */
         accountId: number;
         data: agent_bot_create_update_payload;
-    }): CancelablePromise<agent_bot> {
+    }): Promise<agent_bot> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/agent_bots",
@@ -88,7 +87,7 @@ export class AccountAgentBots {
          * The ID of the agentbot to be updated
          */
         id: number;
-    }): CancelablePromise<agent_bot> {
+    }): Promise<agent_bot> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/agent_bots/{id}",
@@ -123,7 +122,7 @@ export class AccountAgentBots {
          */
         id: number;
         data: agent_bot_create_update_payload;
-    }): CancelablePromise<agent_bot> {
+    }): Promise<agent_bot> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/agent_bots/{id}",
@@ -156,7 +155,7 @@ export class AccountAgentBots {
          * The ID of the agentbot to be updated
          */
         id: number;
-    }): CancelablePromise<any> {
+    }): Promise<any> {
         return __request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/agent_bots/{id}",

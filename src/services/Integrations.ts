@@ -6,7 +6,6 @@ import type { integrations_hook } from "../models/integrations_hook";
 import type { integrations_hook_create_payload } from "../models/integrations_hook_create_payload";
 import type { integrations_hook_update_payload } from "../models/integrations_hook_update_payload";
 
-import type { CancelablePromise } from "../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
 
@@ -30,7 +29,7 @@ export class Integrations {
          * The numeric ID of the account
          */
         accountId: number;
-    }): CancelablePromise<Array<integrations_app>> {
+    }): Promise<Array<integrations_app>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/integrations/apps",
@@ -59,7 +58,7 @@ export class Integrations {
          */
         accountId: number;
         data: integrations_hook_create_payload;
-    }): CancelablePromise<integrations_hook> {
+    }): Promise<integrations_hook> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/integrations/hooks",
@@ -93,7 +92,7 @@ export class Integrations {
          */
         hookId: number;
         data: integrations_hook_update_payload;
-    }): CancelablePromise<integrations_hook> {
+    }): Promise<integrations_hook> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/integrations/hooks/{hook_id}",
@@ -126,7 +125,7 @@ export class Integrations {
          * The numeric ID of the integration hook
          */
         hookId: number;
-    }): CancelablePromise<any> {
+    }): Promise<any> {
         return __request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/integrations/hooks/{hook_id}",

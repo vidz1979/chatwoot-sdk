@@ -5,7 +5,6 @@ import type { public_message } from "../../models/public_message";
 import type { public_message_create_payload } from "../../models/public_message_create_payload";
 import type { public_message_update_payload } from "../../models/public_message_update_payload";
 
-import type { CancelablePromise } from "../../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../../core/ChatwootAPI";
 import { request as __request } from "../../core/request";
 
@@ -44,7 +43,7 @@ export class MessagesApi {
          */
         conversationId: number;
         data: public_message_create_payload;
-    }): CancelablePromise<public_message> {
+    }): Promise<public_message> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts/{contact_identifier}/conversations/{conversation_id}/messages",
@@ -83,7 +82,7 @@ export class MessagesApi {
          * The numeric ID of the conversation
          */
         conversationId: number;
-    }): CancelablePromise<Array<public_message>> {
+    }): Promise<Array<public_message>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts/{contact_identifier}/conversations/{conversation_id}/messages",
@@ -128,7 +127,7 @@ export class MessagesApi {
          */
         messageId: number;
         data: public_message_update_payload;
-    }): CancelablePromise<public_message> {
+    }): Promise<public_message> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts/{contact_identifier}/conversations/{conversation_id}/messages/{message_id}",

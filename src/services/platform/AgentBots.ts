@@ -4,7 +4,6 @@
 import type { agent_bot } from "../../models/agent_bot";
 import type { agent_bot_create_update_payload } from "../../models/agent_bot_create_update_payload";
 
-import type { CancelablePromise } from "../../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../../core/ChatwootAPI";
 import { request as __request } from "../../core/request";
 
@@ -21,7 +20,7 @@ export class AgentBots {
      * @returns agent_bot Success
      * @throws ApiError
      */
-    public list(): CancelablePromise<Array<agent_bot>> {
+    public list(): Promise<Array<agent_bot>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/platform/api/v1/agent_bots",
@@ -37,7 +36,7 @@ export class AgentBots {
      * @returns agent_bot Success
      * @throws ApiError
      */
-    public create({ data }: { data: agent_bot_create_update_payload }): CancelablePromise<agent_bot> {
+    public create({ data }: { data: agent_bot_create_update_payload }): Promise<agent_bot> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/platform/api/v1/agent_bots",
@@ -61,7 +60,7 @@ export class AgentBots {
          * The ID of the agentbot to be updated
          */
         id: number;
-    }): CancelablePromise<agent_bot> {
+    }): Promise<agent_bot> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/platform/api/v1/agent_bots/{id}",
@@ -90,7 +89,7 @@ export class AgentBots {
          */
         id: number;
         data: agent_bot_create_update_payload;
-    }): CancelablePromise<agent_bot> {
+    }): Promise<agent_bot> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/platform/api/v1/agent_bots/{id}",
@@ -117,7 +116,7 @@ export class AgentBots {
          * The ID of the agentbot to be updated
          */
         id: number;
-    }): CancelablePromise<any> {
+    }): Promise<any> {
         return __request(this.chatwootAPI, {
             method: "DELETE",
             url: "/platform/api/v1/agent_bots/{id}",

@@ -1,7 +1,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from "../../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../../core/ChatwootAPI";
 import { request as __request } from "../../core/request";
 
@@ -25,7 +24,7 @@ export class AccountUsers {
          * The numeric ID of the account
          */
         accountId: number;
-    }): CancelablePromise<
+    }): Promise<
         Array<{
             /**
              * The ID of the user
@@ -77,7 +76,7 @@ export class AccountUsers {
              */
             role: string;
         };
-    }): CancelablePromise<any> {
+    }): Promise<any> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/platform/api/v1/accounts/{account_id}/account_users",
@@ -111,7 +110,7 @@ export class AccountUsers {
              */
             user_id: number;
         };
-    }): CancelablePromise<any> {
+    }): Promise<any> {
         return __request(this.chatwootAPI, {
             method: "DELETE",
             url: "/platform/api/v1/accounts/{account_id}/account_users",

@@ -4,7 +4,6 @@
 import type { automation_rule } from "../models/automation_rule";
 import type { automation_rule_create_update_payload } from "../models/automation_rule_create_update_payload";
 
-import type { CancelablePromise } from "../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
 
@@ -33,7 +32,7 @@ export class AutomationRule {
          * The page parameter
          */
         page?: number;
-    }): CancelablePromise<Array<automation_rule>> {
+    }): Promise<Array<automation_rule>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/automation_rules",
@@ -64,7 +63,7 @@ export class AutomationRule {
          */
         accountId: number;
         data: automation_rule_create_update_payload;
-    }): CancelablePromise<automation_rule> {
+    }): Promise<automation_rule> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/automation_rules",
@@ -96,7 +95,7 @@ export class AutomationRule {
          * ID of the Automation Rule
          */
         id: number;
-    }): CancelablePromise<automation_rule> {
+    }): Promise<automation_rule> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/automation_rules/{id}",
@@ -131,7 +130,7 @@ export class AutomationRule {
          */
         id: number;
         data: automation_rule_create_update_payload;
-    }): CancelablePromise<automation_rule> {
+    }): Promise<automation_rule> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/automation_rules/{id}",
@@ -165,7 +164,7 @@ export class AutomationRule {
          * ID of the Automation Rule
          */
         id: number;
-    }): CancelablePromise<any> {
+    }): Promise<any> {
         return __request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/automation_rules/{id}",

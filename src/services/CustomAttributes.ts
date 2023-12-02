@@ -4,7 +4,6 @@
 import type { custom_attribute } from "../models/custom_attribute";
 import type { custom_attribute_create_update_payload } from "../models/custom_attribute_create_update_payload";
 
-import type { CancelablePromise } from "../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
 
@@ -34,7 +33,7 @@ export class CustomAttributes {
          * conversation_attribute(0)/contact_attribute(1)
          */
         attributeModel: "0" | "1";
-    }): CancelablePromise<Array<custom_attribute>> {
+    }): Promise<Array<custom_attribute>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/custom_attribute_definitions",
@@ -66,7 +65,7 @@ export class CustomAttributes {
          */
         accountId: number;
         data: custom_attribute_create_update_payload;
-    }): CancelablePromise<custom_attribute> {
+    }): Promise<custom_attribute> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/custom_attribute_definitions",
@@ -99,7 +98,7 @@ export class CustomAttributes {
          * ID of the custom attribute
          */
         id: number;
-    }): CancelablePromise<custom_attribute> {
+    }): Promise<custom_attribute> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/custom_attribute_definitions/{id}",
@@ -135,7 +134,7 @@ export class CustomAttributes {
          */
         id: number;
         data: custom_attribute_create_update_payload;
-    }): CancelablePromise<custom_attribute> {
+    }): Promise<custom_attribute> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/custom_attribute_definitions/{id}",
@@ -170,7 +169,7 @@ export class CustomAttributes {
          * ID of the custom attribute
          */
         id: number;
-    }): CancelablePromise<any> {
+    }): Promise<any> {
         return __request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/custom_attribute_definitions/{id}",
