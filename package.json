@@ -1,5 +1,5 @@
 {
-  "name": "@figuro/chatwoot-sdk",
+  "name": "@jorgenvatle/chatwoot-sdk",
   "version": "1.1.16",
   "description": "SDK for JS/Typescript for Chatwoot.",
   "repository": {
