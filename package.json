@@ -4,7 +4,7 @@
   "description": "SDK for JS/Typescript for Chatwoot.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/figurolatam/chatwoot-sdk.git"
+    "url": "https://github.com/JorgenVatle/chatwoot-sdk.git"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
