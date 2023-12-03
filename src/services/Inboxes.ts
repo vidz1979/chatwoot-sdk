@@ -92,7 +92,7 @@ export class Inboxes {
         accountId,
         data,
     }: {
-        accountId: string,
+        accountId: number,
         data: inbox_create_update_data,
     }): CancelablePromise<inbox> {
         return __request(this.chatwootAPI, {
