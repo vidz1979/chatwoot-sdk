@@ -31,7 +31,9 @@ export class Inboxes {
          * The numeric ID of the account
          */
         accountId: number;
-    }): CancelablePromise<Array<inbox>> {
+    }): CancelablePromise<{
+        payload: Array<inbox>
+    }> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/inboxes",
