@@ -19,4 +19,10 @@ export type user = {
      */
     custom_attributes?: any;
     accounts?: Array<account>;
+    /**
+     * Provides access to endpoints based on the user permissions levels.
+     * This token can be saved by an external system when user is created via API, to perform activities on behalf
+     * of the user.
+     */
+    access_token?: string;
 };
