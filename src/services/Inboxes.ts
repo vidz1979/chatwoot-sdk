@@ -8,6 +8,7 @@ import type { agent_bot } from "../models/agent_bot";
 import type { CancelablePromise } from "../core/CancelablePromise";
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
+import { inbox_create_update_data } from '../models/inbox_create_update_data';
 
 export class Inboxes {
     private chatwootAPI: ChatwootAPIConfig;
@@ -89,43 +90,8 @@ export class Inboxes {
         accountId,
         data,
     }: {
-        /**
-         * The numeric ID of the account
-         */
-        accountId: number;
-        data: {
-            /**
-             * The name of the inbox
-             */
-            name?: string;
-            /**
-             * File for avatar image
-             */
-            avatar?: Blob;
-            channel?: {
-                type?: "web_widget";
-                /**
-                 * URL at which the widget will be loaded
-                 */
-                website_url?: string;
-                /**
-                 * Welcome title to be displayed on the widget
-                 */
-                welcome_title?: string;
-                /**
-                 * Welcome tagline to be displayed on the widget
-                 */
-                welcome_tagline?: string;
-                /**
-                 * A message which will be sent if there is not agent available. This is not available if agentbot is connected
-                 */
-                agent_away_message?: string;
-                /**
-                 * A Hex-color string used to customize the widget
-                 */
-                widget_color?: string;
-            };
-        };
+        accountId: string,
+        data: inbox_create_update_data,
     }): CancelablePromise<inbox> {
         return __request(this.chatwootAPI, {
             method: "POST",
@@ -161,42 +127,7 @@ export class Inboxes {
          * ID of the inbox
          */
         id: number;
-        data: {
-            /**
-             * The name of the inbox
-             */
-            name?: string;
-            /**
-             * Enable Auto Assignment
-             */
-            enable_auto_assignment: boolean;
-            /**
-             * Image file for avatar
-             */
-            avatar?: Blob;
-            channel?: {
-                /**
-                 * URL at which the widget will be loaded
-                 */
-                website_url?: string;
-                /**
-                 * Welcome title to be displayed on the widget
-                 */
-                welcome_title?: string;
-                /**
-                 * Welcome tagline to be displayed on the widget
-                 */
-                welcome_tagline?: string;
-                /**
-                 * A message which will be sent if there is not agent available. This is not available if agentbot is connected
-                 */
-                agent_away_message?: string;
-                /**
-                 * A Hex-color string used to customize the widget
-                 */
-                widget_color?: string;
-            };
-        };
+        data: inbox_create_update_data;
     }): CancelablePromise<inbox> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
