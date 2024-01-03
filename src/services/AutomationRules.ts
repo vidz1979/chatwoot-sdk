@@ -7,7 +7,7 @@ import type { AutomationRuleCreateUpdatePayload } from "../models/automation_rul
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
 
-export class AutomationRule {
+export class AutomationRules {
     private chatwootAPI: ChatwootAPIConfig;
 
     constructor({ config }: { config: ChatwootAPIConfig }) {

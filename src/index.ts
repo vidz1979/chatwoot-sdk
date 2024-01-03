@@ -23,7 +23,7 @@ export type { ContactList as contact_list } from "./models/contact_list";
 export type { ContactUpdate as contact_update } from "./models/contact_update";
 export type { ContactableInboxes as contactable_inboxes } from "./models/contactable_inboxes";
 export type { Conversation as conversation } from "./models/conversation";
-export type { ConversationLabels as conversation_labels } from "./models/conversation_labels";
+export type { ConversationLabelList as conversation_labels } from "./models/conversation_label_list";
 export type { ConversationList as conversation_list } from "./models/conversation_list";
 export type { ConversationMessageCreate as conversation_message_create } from "./models/conversation_message_create";
 export type { ConversationShow as conversation_show } from "./models/conversation_show";
@@ -61,7 +61,7 @@ import { Accounts } from "./services/platform/Accounts";
 import { AccountUsers } from "./services/platform/AccountUsers";
 import { AgentBots } from "./services/platform/AgentBots";
 import { Agents } from "./services/Agents";
-import { AutomationRule } from "./services/AutomationRules";
+import { AutomationRules } from "./services/AutomationRules";
 import { CannedResponses } from "./services/CannedResponses";
 import { Contact } from "./services/ContactInboxes";
 import { Contacts } from "./services/Contacts";
@@ -109,7 +109,7 @@ export default class ChatwootClient {
 
         this.agentBots = new AgentBots({ config: config });
         this.agents = new Agents({ config: config });
-        this.automationRule = new AutomationRule({ config: config });
+        this.automationRule = new AutomationRules({ config: config });
         this.cannedResponses = new CannedResponses({ config: config });
         this.contact = new Contact({ config: config });
         this.contacts = new Contacts({ config: config });
@@ -133,7 +133,7 @@ export default class ChatwootClient {
     public accountAgentBots: AccountAgentBots;
     public agentBots: AgentBots;
     public agents: Agents;
-    public automationRule: AutomationRule;
+    public automationRule: AutomationRules;
     public cannedResponses: CannedResponses;
     public contact: Contact;
     public contacts: Contacts;
