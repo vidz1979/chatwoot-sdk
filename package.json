@@ -1,10 +1,10 @@
 {
-  "name": "@jorgenvatle/chatwoot-sdk",
+  "name": "@jrvidotti/chatwoot-sdk",
   "version": "1.2.5",
   "description": "SDK for JS/Typescript for Chatwoot.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JorgenVatle/chatwoot-sdk.git"
+    "url": "https://github.com/vidz1979/chatwoot-sdk.git"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
