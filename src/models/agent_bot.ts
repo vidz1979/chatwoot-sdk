@@ -23,4 +23,16 @@ export type AgentBot = {
      * The webhook URL for the bot
      */
     outgoing_url?: string;
+    /**
+     * Bot type (default: "webhook")
+     */
+    bot_type?: string;
+    /**
+     * Bot config (default: {})
+     */
+    bot_config?: any;
+    /**
+     * Access token for bot
+     */
+    access_token?: string;
 };
