@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type team_create_update_payload = {
+export type TeamCreateUpdatePayload = {
     /**
      * The name of the team
      */

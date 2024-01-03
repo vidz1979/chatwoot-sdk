@@ -2,12 +2,12 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { inbox } from "./inbox";
+import type { Inbox } from "./inbox";
 
-export type contactable_inboxes = {
+export type ContactableInboxes = {
     /**
      * Contact Inbox Source Id
      */
     source_id?: string;
-    inbox?: inbox;
+    inbox?: Inbox;
 };

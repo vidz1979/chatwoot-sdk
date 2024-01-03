@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type agent_conversation_metrics = {
+export type AgentConversationMetrics = {
     id?: number;
     name?: string;
     email?: string;

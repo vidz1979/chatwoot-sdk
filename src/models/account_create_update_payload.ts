@@ -2,9 +2,16 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type account_create_update_payload = {
+import { Locale } from "./locale";
+
+export type AccountCreateUpdatePayload = {
     /**
      * Name of the account
      */
-    name?: string;
+    name: string;
+
+    /**
+     * Locale of the account (language)
+     */
+    locale?: Locale;
 };

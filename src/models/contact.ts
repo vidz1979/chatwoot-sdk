@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { contact_inboxes } from "./contact_inboxes";
+import type { ContactInboxes } from "./contact_inboxes";
 
-export type contact = {
+export type Contact = {
     /**
      * Email address of the contact
      */
@@ -29,5 +29,5 @@ export type contact = {
      * The object to save custom attributes for contact, accepts custom attributes key and value
      */
     custom_attributes?: any;
-    contact_inboxes?: Array<contact_inboxes>;
+    contact_inboxes?: Array<ContactInboxes>;
 };

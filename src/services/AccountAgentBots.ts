@@ -1,8 +1,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { agent_bot } from "../models/agent_bot";
-import type { agent_bot_create_update_payload } from "../models/agent_bot_create_update_payload";
+import type { AgentBot } from "../models/agent_bot";
+import type { AgentBotCreateUpdatePayload } from "../models/agent_bot_create_update_payload";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
@@ -27,7 +27,7 @@ export class AccountAgentBots {
          * The numeric ID of the account
          */
         accountId: number;
-    }): Promise<Array<agent_bot>> {
+    }): Promise<Array<AgentBot>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/agent_bots",
@@ -54,8 +54,8 @@ export class AccountAgentBots {
          * The numeric ID of the account
          */
         accountId: number;
-        data: agent_bot_create_update_payload;
-    }): Promise<agent_bot> {
+        data: AgentBotCreateUpdatePayload;
+    }): Promise<AgentBot> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/agent_bots",
@@ -87,7 +87,7 @@ export class AccountAgentBots {
          * The ID of the agentbot to be updated
          */
         id: number;
-    }): Promise<agent_bot> {
+    }): Promise<AgentBot> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/agent_bots/{id}",
@@ -121,8 +121,8 @@ export class AccountAgentBots {
          * The ID of the agentbot to be updated
          */
         id: number;
-        data: agent_bot_create_update_payload;
-    }): Promise<agent_bot> {
+        data: AgentBotCreateUpdatePayload;
+    }): Promise<AgentBot> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/agent_bots/{id}",

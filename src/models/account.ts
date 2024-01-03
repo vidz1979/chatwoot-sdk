@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type account = {
+export type Account = {
     /**
      * Account ID
      */

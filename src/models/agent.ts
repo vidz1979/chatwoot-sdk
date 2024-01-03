@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type agent = {
+export type Agent = {
     id?: number;
     uid?: string;
     name?: string;

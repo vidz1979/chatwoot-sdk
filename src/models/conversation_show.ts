@@ -2,12 +2,12 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { conversation } from "./conversation";
-import type { generic_id } from "./generic_id";
-import type { user } from "./user";
+import type { Conversation } from "./conversation";
+import type { GenericId } from "./generic_id";
+import type { User } from "./user";
 
-export type conversation_show = generic_id &
-    conversation & {
+export type ConversationShow = GenericId &
+    Conversation & {
         meta?: {
             sender?: {
                 /**
@@ -27,6 +27,6 @@ export type conversation_show = generic_id &
                  */
                 channel?: string;
             };
-            assignee?: user;
+            assignee?: User;
         };
     };

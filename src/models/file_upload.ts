@@ -4,7 +4,7 @@
 
 import { Readable } from "stream";
 
-export type file_upload = {
+export type FileUpload = {
     /**
      * Name of the account
      */

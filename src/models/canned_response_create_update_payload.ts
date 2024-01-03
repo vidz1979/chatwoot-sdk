@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type canned_response_create_update_payload = {
+export type CannedResponseCreateUpdatePayload = {
     /**
      * Message content for canned response
      */

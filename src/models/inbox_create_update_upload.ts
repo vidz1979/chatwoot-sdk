@@ -1,4 +1,4 @@
-export type inbox_create_update_data = {
+export type InboxCreateUpdatePayload = {
     /**
      * The name of the inbox
      */
@@ -29,5 +29,5 @@ export type inbox_create_update_data = {
          * A Hex-color string used to customize the widget
          */
         widget_color?: string;
-    }
-}
+    };
+};

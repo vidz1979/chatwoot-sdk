@@ -1,8 +1,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { automation_rule } from "../models/automation_rule";
-import type { automation_rule_create_update_payload } from "../models/automation_rule_create_update_payload";
+import type { AutomationRule } from "../models/automation_rule";
+import type { AutomationRuleCreateUpdatePayload } from "../models/automation_rule_create_update_payload";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
@@ -32,7 +32,7 @@ export class AutomationRule {
          * The page parameter
          */
         page?: number;
-    }): Promise<Array<automation_rule>> {
+    }): Promise<Array<AutomationRule>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/automation_rules",
@@ -62,8 +62,8 @@ export class AutomationRule {
          * The numeric ID of the account
          */
         accountId: number;
-        data: automation_rule_create_update_payload;
-    }): Promise<automation_rule> {
+        data: AutomationRuleCreateUpdatePayload;
+    }): Promise<AutomationRule> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/automation_rules",
@@ -95,7 +95,7 @@ export class AutomationRule {
          * ID of the Automation Rule
          */
         id: number;
-    }): Promise<automation_rule> {
+    }): Promise<AutomationRule> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/automation_rules/{id}",
@@ -129,8 +129,8 @@ export class AutomationRule {
          * ID of the Automation Rule
          */
         id: number;
-        data: automation_rule_create_update_payload;
-    }): Promise<automation_rule> {
+        data: AutomationRuleCreateUpdatePayload;
+    }): Promise<AutomationRule> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/automation_rules/{id}",

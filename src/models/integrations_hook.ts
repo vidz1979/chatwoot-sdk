@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type integrations_hook = {
+export type IntegrationsHook = {
     /**
      * The ID of the integration hook
      */

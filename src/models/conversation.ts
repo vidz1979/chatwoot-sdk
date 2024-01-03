@@ -2,14 +2,14 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { message } from "./message";
+import type { Message } from "./message";
 
-export type conversation = {
+export type Conversation = {
     /**
      * ID of the conversation
      */
     id?: number;
-    messages?: Array<message>;
+    messages?: Array<Message>;
     /**
      * Account Id
      */

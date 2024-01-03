@@ -9,7 +9,7 @@ import { ApiError } from "./ApiError";
 import type { ApiRequestOptions } from "./ApiRequestOptions";
 import type { ApiResult } from "./ApiResult";
 import type { ChatwootAPIConfig } from "./ChatwootAPI";
-import { file_upload } from "../models/file_upload";
+import { FileUpload } from "../models/file_upload";
 
 const isDefined = <T>(value: T | null | undefined): value is Exclude<T, null | undefined> => {
     return value !== undefined && value !== null;
@@ -19,7 +19,7 @@ const isString = (value: any): value is string => {
     return typeof value === "string";
 };
 
-const isFileUpload = (value: any): value is file_upload => {
+const isFileUpload = (value: any): value is FileUpload => {
     return isDefined(value) && typeof value === "object" && value.content !== undefined && value.filename !== undefined;
 };
 
@@ -210,9 +210,8 @@ const sendRequest = async <T>(
     url: string,
     body: any,
     formData: FormData | undefined,
-    headers: Record<string, string>,
+    headers: Record<string, string>
 ): Promise<AxiosResponse<T>> => {
-
     const requestConfig: AxiosRequestConfig = {
         url,
         headers,
@@ -285,11 +284,11 @@ export const request = <T>(config: ChatwootAPIConfig, options: ApiRequestOptions
             const formData = getFormData(options);
             const body = getRequestBody(options);
             const headers = await getHeaders(config, options, formData);
-            
+
             const response = await sendRequest<T>(config, options, url, body, formData, headers);
             const responseBody = getResponseBody(response);
             const responseHeader = getResponseHeader(response, options.responseHeader);
-            
+
             const result: ApiResult = {
                 url,
                 ok: isSuccess(response.status),
@@ -297,9 +296,9 @@ export const request = <T>(config: ChatwootAPIConfig, options: ApiRequestOptions
                 statusText: response.statusText,
                 body: responseHeader ?? responseBody,
             };
-            
+
             catchErrorCodes(options, result);
-            
+
             resolve(result.body);
         } catch (error) {
             reject(error);

@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type integrations_hook_create_payload = {
+export type IntegrationsHookCreatePayload = {
     /**
      * The ID of app for which integration hook is being created
      */

@@ -1,8 +1,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { canned_response } from "../models/canned_response";
-import type { canned_response_create_update_payload } from "../models/canned_response_create_update_payload";
+import type { CannedResponse } from "../models/canned_response";
+import type { CannedResponseCreateUpdatePayload } from "../models/canned_response_create_update_payload";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
@@ -27,7 +27,7 @@ export class CannedResponses {
          * The numeric ID of the account
          */
         accountId: number;
-    }): Promise<Array<canned_response>> {
+    }): Promise<Array<CannedResponse>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/canned_responses",
@@ -54,8 +54,8 @@ export class CannedResponses {
          * The numeric ID of the account
          */
         accountId: number;
-        data: canned_response_create_update_payload;
-    }): Promise<canned_response> {
+        data: CannedResponseCreateUpdatePayload;
+    }): Promise<CannedResponse> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/canned_responses",
@@ -87,8 +87,8 @@ export class CannedResponses {
          * The ID of the canned response to be updated.
          */
         id: number;
-        data: canned_response_create_update_payload;
-    }): Promise<canned_response> {
+        data: CannedResponseCreateUpdatePayload;
+    }): Promise<CannedResponse> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/canned_responses/{id}",

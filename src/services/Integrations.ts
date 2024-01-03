@@ -1,10 +1,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { integrations_app } from "../models/integrations_app";
-import type { integrations_hook } from "../models/integrations_hook";
-import type { integrations_hook_create_payload } from "../models/integrations_hook_create_payload";
-import type { integrations_hook_update_payload } from "../models/integrations_hook_update_payload";
+import type { IntegrationsApp } from "../models/integrations_app";
+import type { IntegrationsHook } from "../models/integrations_hook";
+import type { IntegrationsHookCreatePayload } from "../models/integrations_hook_create_payload";
+import type { IntegrationsHookUpdatePayload } from "../models/integrations_hook_update_payload";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
@@ -29,7 +29,7 @@ export class Integrations {
          * The numeric ID of the account
          */
         accountId: number;
-    }): Promise<Array<integrations_app>> {
+    }): Promise<Array<IntegrationsApp>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/integrations/apps",
@@ -57,8 +57,8 @@ export class Integrations {
          * The numeric ID of the account
          */
         accountId: number;
-        data: integrations_hook_create_payload;
-    }): Promise<integrations_hook> {
+        data: IntegrationsHookCreatePayload;
+    }): Promise<IntegrationsHook> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/integrations/hooks",
@@ -91,8 +91,8 @@ export class Integrations {
          * The numeric ID of the integration hook
          */
         hookId: number;
-        data: integrations_hook_update_payload;
-    }): Promise<integrations_hook> {
+        data: IntegrationsHookUpdatePayload;
+    }): Promise<IntegrationsHook> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/integrations/hooks/{hook_id}",

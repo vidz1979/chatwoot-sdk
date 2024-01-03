@@ -1,8 +1,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { contact_inboxes } from "../models/contact_inboxes";
-import type { contactable_inboxes } from "../models/contactable_inboxes";
+import type { ContactInboxes } from "../models/contact_inboxes";
+import type { ContactableInboxes } from "../models/contactable_inboxes";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
@@ -43,7 +43,7 @@ export class Contact {
              */
             source_id?: string;
         };
-    }): Promise<contact_inboxes> {
+    }): Promise<ContactInboxes> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/contacts/{id}/contact_inboxes",
@@ -77,7 +77,7 @@ export class Contact {
          * ID of the contact
          */
         id: number;
-    }): Promise<contactable_inboxes> {
+    }): Promise<ContactableInboxes> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/contacts/{id}/contactable_inboxes",

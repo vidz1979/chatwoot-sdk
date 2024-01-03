@@ -2,14 +2,14 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { conversation } from "./conversation";
-import type { user } from "./user";
+import type { Conversation } from "./conversation";
+import type { User } from "./user";
 
 /**
  * array of conversations
  */
-export type contact_conversations = Array<
-    conversation & {
+export type ContactConversations = Array<
+    Conversation & {
         meta?: {
             sender?: {
                 /**
@@ -29,7 +29,7 @@ export type contact_conversations = Array<
                  */
                 channel?: string;
             };
-            assignee?: user;
+            assignee?: User;
         };
     } & {
         display_id?: number;

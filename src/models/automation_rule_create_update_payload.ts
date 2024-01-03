@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type automation_rule_create_update_payload = {
+export type AutomationRuleCreateUpdatePayload = {
     /**
      * Rule name
      */

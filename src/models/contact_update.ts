@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type contact_update = {
+export type ContactUpdate = {
     /**
      * name of the contact
      */

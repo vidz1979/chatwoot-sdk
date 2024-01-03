@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type account_summary = {
+export type AccountSummary = {
     avg_first_response_time?: string;
     avg_resolution_time?: string;
     conversations_count?: number;

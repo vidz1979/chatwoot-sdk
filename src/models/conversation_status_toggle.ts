@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type conversation_status_toggle = {
+export type ConversationStatusToggle = {
     meta?: any;
     payload?: {
         success?: boolean;

@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type team = {
+export type Team = {
     /**
      * The ID of the team
      */

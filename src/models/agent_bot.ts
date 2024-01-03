@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type agent_bot = {
+export type AgentBot = {
     /**
      * ID of the agent bot
      */

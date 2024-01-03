@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { contact } from "./contact";
+import type { Contact } from "./contact";
 
-export type extended_contact = contact & {
+export type ExtendedContact = Contact & {
     /**
      * Id of the user
      */

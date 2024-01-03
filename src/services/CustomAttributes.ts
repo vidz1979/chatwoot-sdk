@@ -1,8 +1,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { custom_attribute } from "../models/custom_attribute";
-import type { custom_attribute_create_update_payload } from "../models/custom_attribute_create_update_payload";
+import type { CustomAttribute } from "../models/custom_attribute";
+import type { CustomAttributeCreateUpdatePayload } from "../models/custom_attribute_create_update_payload";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
@@ -33,7 +33,7 @@ export class CustomAttributes {
          * conversation_attribute(0)/contact_attribute(1)
          */
         attributeModel: "0" | "1";
-    }): Promise<Array<custom_attribute>> {
+    }): Promise<Array<CustomAttribute>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/custom_attribute_definitions",
@@ -64,8 +64,8 @@ export class CustomAttributes {
          * The numeric ID of the account
          */
         accountId: number;
-        data: custom_attribute_create_update_payload;
-    }): Promise<custom_attribute> {
+        data: CustomAttributeCreateUpdatePayload;
+    }): Promise<CustomAttribute> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/custom_attribute_definitions",
@@ -98,7 +98,7 @@ export class CustomAttributes {
          * ID of the custom attribute
          */
         id: number;
-    }): Promise<custom_attribute> {
+    }): Promise<CustomAttribute> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/custom_attribute_definitions/{id}",
@@ -133,8 +133,8 @@ export class CustomAttributes {
          * ID of the custom attribute
          */
         id: number;
-        data: custom_attribute_create_update_payload;
-    }): Promise<custom_attribute> {
+        data: CustomAttributeCreateUpdatePayload;
+    }): Promise<CustomAttribute> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/custom_attribute_definitions/{id}",

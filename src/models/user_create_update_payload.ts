@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type user_create_update_payload = {
+export type UserCreateUpdatePayload = {
     /**
      * Name of the user
      */

@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type webhook_create_update_payload = {
+export type WebhookCreateUpdatePayload = {
     /**
      * The url where the events should be sent
      */

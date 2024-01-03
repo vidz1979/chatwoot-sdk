@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type request_error = {
+export type RequestError = {
     field?: string;
     message?: string;
     code?: string;

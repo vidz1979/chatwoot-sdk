@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type webhook = {
+export type Webhook = {
     /**
      * The ID of the webhook
      */

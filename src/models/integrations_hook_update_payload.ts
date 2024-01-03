@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type integrations_hook_update_payload = {
+export type IntegrationsHookUpdatePayload = {
     /**
      * The settings required by the integration
      */

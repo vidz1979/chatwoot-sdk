@@ -1,16 +1,16 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { conversation_message_create } from "../models/conversation_message_create";
-import type { conversation_message_update } from "../models/conversation_message_update";
-import type { generic_id } from "../models/generic_id";
-import type { message } from "../models/message";
+import type { ConversationMessageCreate } from "../models/conversation_message_create";
+import type { ConversationMessageUpdate } from "../models/conversation_message_update";
+import type { GenericId } from "../models/generic_id";
+import type { Message } from "../models/message";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
 import { Blob } from "buffer";
 import { Readable } from "stream";
-import { file_upload } from "../models/file_upload";
+import { FileUpload } from "../models/file_upload";
 
 /**
  * Messages calls from Platform API
@@ -40,7 +40,7 @@ export class Messages {
          * The numeric ID of the conversation
          */
         conversationId: number;
-    }): Promise<Array<generic_id & message>> {
+    }): Promise<Array<GenericId & Message>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}/messages",
@@ -74,15 +74,15 @@ export class Messages {
          * The numeric ID of the conversation
          */
         conversationId: number;
-        data: conversation_message_create;
+        data: ConversationMessageCreate;
         /**
          * The payload as {@link conversation_message_create}
          */
-    }): Promise<generic_id & message> {
+    }): Promise<GenericId & Message> {
         const { attachments, ...clone } = data;
-        let files: file_upload[] | undefined;
+        let files: FileUpload[] | undefined;
         if (attachments) {
-            files = attachments.map<file_upload>((value) => {
+            files = attachments.map<FileUpload>((value) => {
                 return {
                     content: new Readable({
                         read() {
@@ -130,19 +130,19 @@ export class Messages {
          * The numeric ID of the conversation
          */
         conversationId: number;
-        data: conversation_message_update;
+        data: ConversationMessageUpdate;
         /**
-         * The payload as {@link conversation_message_update}
+         * The payload as {@link ConversationMessageUpdate}
          */
         /**
          * The numeric ID of the message
          */
         messageId: number;
-    }): Promise<generic_id & message> {
+    }): Promise<GenericId & Message> {
         const { attachments, ...clone } = data;
-        let files: file_upload[] | undefined;
+        let files: FileUpload[] | undefined;
         if (attachments) {
-            files = attachments.map<file_upload>((value) => {
+            files = attachments.map<FileUpload>((value) => {
                 return {
                     content: new Readable({
                         read() {

@@ -1,11 +1,11 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { contact_conversations } from "../models/contact_conversations";
-import type { contact_create } from "../models/contact_create";
-import type { contact_list } from "../models/contact_list";
-import type { contact_update } from "../models/contact_update";
-import type { extended_contact } from "../models/extended_contact";
+import type { ContactConversations } from "../models/contact_conversations";
+import type { ContactCreate } from "../models/contact_create";
+import type { ContactList } from "../models/contact_list";
+import type { ContactUpdate } from "../models/contact_update";
+import type { ExtendedContact } from "../models/extended_contact";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
@@ -49,7 +49,7 @@ export class Contacts {
          * The page parameter
          */
         page?: number;
-    }): Promise<contact_list> {
+    }): Promise<ContactList> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/contacts",
@@ -81,8 +81,8 @@ export class Contacts {
          * The numeric ID of the account
          */
         accountId: number;
-        data: contact_create;
-    }): Promise<extended_contact> {
+        data: ContactCreate;
+    }): Promise<ExtendedContact> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/contacts",
@@ -115,7 +115,7 @@ export class Contacts {
          * ID of the contact
          */
         id: number;
-    }): Promise<extended_contact> {
+    }): Promise<ExtendedContact> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/contacts/{id}",
@@ -150,7 +150,7 @@ export class Contacts {
          * ID of the contact
          */
         id: number;
-        data: contact_update;
+        data: ContactUpdate;
     }): Promise<void> {
         return __request(this.chatwootAPI, {
             method: "PUT",
@@ -219,7 +219,7 @@ export class Contacts {
          * ID of the contact
          */
         id: number;
-    }): Promise<contact_conversations> {
+    }): Promise<ContactConversations> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/contacts/{id}/conversations",
@@ -272,7 +272,7 @@ export class Contacts {
          */
         page?: number;
     }): Promise<{
-        payload?: contact_list;
+        payload?: ContactList;
     }> {
         return __request(this.chatwootAPI, {
             method: "GET",
@@ -326,7 +326,7 @@ export class Contacts {
             query_operator?: "AND" | "OR";
         }>;
         page?: number;
-    }): Promise<contact_list> {
+    }): Promise<ContactList> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/contacts/filter",

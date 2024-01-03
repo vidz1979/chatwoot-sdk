@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type inbox = {
+export type Inbox = {
     /**
      * ID of the inbox
      */

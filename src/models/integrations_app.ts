@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type integrations_app = {
+export type IntegrationsApp = {
     /**
      * The ID of the integration
      */

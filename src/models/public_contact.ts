@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type public_contact = {
+export type PublicContact = {
     /**
      * Id of the contact
      */

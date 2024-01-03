@@ -1,8 +1,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { account_summary } from "../models/account_summary";
-import type { agent_conversation_metrics } from "../models/agent_conversation_metrics";
+import type { AccountSummary } from "../models/account_summary";
+import type { AgentConversationMetrics } from "../models/agent_conversation_metrics";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
@@ -117,7 +117,7 @@ export class Reports {
          * The timestamp from where report should stop.
          */
         until?: string;
-    }): Promise<account_summary> {
+    }): Promise<AccountSummary> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v2/accounts/{account_id}/reports/summary",
@@ -199,7 +199,7 @@ export class Reports {
          * The numeric ID of the user
          */
         userId?: string;
-    }): Promise<Array<agent_conversation_metrics>> {
+    }): Promise<Array<AgentConversationMetrics>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v2/accounts/{account_id}/reports/conversations/",

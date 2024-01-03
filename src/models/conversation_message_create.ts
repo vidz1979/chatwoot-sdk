@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type conversation_message_create = {
+export type ConversationMessageCreate = {
     /**
      * The content of the message
      */

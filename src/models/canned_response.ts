@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type canned_response = {
+export type CannedResponse = {
     /**
      * ID of the canned response
      */

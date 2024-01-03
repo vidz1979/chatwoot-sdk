@@ -1,13 +1,13 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { agent } from "../models/agent";
-import type { inbox } from "../models/inbox";
-import type { agent_bot } from "../models/agent_bot";
+import type { Agent } from "../models/agent";
+import type { Inbox } from "../models/inbox";
+import type { AgentBot } from "../models/agent_bot";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
-import { inbox_create_update_data } from '../models/inbox_create_update_data';
+import { InboxCreateUpdatePayload } from "../models/inbox_create_update_upload";
 
 export class Inboxes {
     private chatwootAPI: ChatwootAPIConfig;
@@ -31,7 +31,7 @@ export class Inboxes {
          */
         accountId: number;
     }): Promise<{
-        payload: Array<inbox>
+        payload: Array<Inbox>;
     }> {
         return __request(this.chatwootAPI, {
             method: "GET",
@@ -65,7 +65,7 @@ export class Inboxes {
          * ID of the inbox
          */
         id: number;
-    }): Promise<inbox> {
+    }): Promise<Inbox> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/inboxes/{id}/",
@@ -87,13 +87,7 @@ export class Inboxes {
      * @throws ApiError
      * {@link https://www.chatwoot.com/developers/api/#tag/Inboxes/operation/inboxCreation}
      */
-    public create({
-        accountId,
-        data,
-    }: {
-        accountId: number,
-        data: inbox_create_update_data,
-    }): Promise<inbox> {
+    public create({ accountId, data }: { accountId: number; data: InboxCreateUpdatePayload }): Promise<Inbox> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/inboxes/",
@@ -128,8 +122,8 @@ export class Inboxes {
          * ID of the inbox
          */
         id: number;
-        data: inbox_create_update_data;
-    }): Promise<inbox> {
+        data: InboxCreateUpdatePayload;
+    }): Promise<Inbox> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/inboxes/{id}",
@@ -164,7 +158,7 @@ export class Inboxes {
          * ID of the inbox
          */
         id: number;
-    }): Promise<agent_bot> {
+    }): Promise<AgentBot> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/inboxes/{id}/agent_bot",
@@ -239,7 +233,7 @@ export class Inboxes {
          * The ID of the Inbox
          */
         inboxId: number;
-    }): Promise<Array<agent>> {
+    }): Promise<Array<Agent>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/inbox_members/{inbox_id}",
@@ -324,7 +318,7 @@ export class Inboxes {
              */
             user_ids: Array<number>;
         };
-    }): Promise<Array<agent>> {
+    }): Promise<Array<Agent>> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/inbox_members",
@@ -364,7 +358,7 @@ export class Inboxes {
              */
             user_ids: Array<number>;
         };
-    }): Promise<Array<agent>> {
+    }): Promise<Array<Agent>> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/inbox_members",

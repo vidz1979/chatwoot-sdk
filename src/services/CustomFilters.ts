@@ -1,8 +1,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { custom_filter } from "../models/custom_filter";
-import type { custom_filter_create_update_payload } from "../models/custom_filter_create_update_payload";
+import type { CustomFilter } from "../models/custom_filter";
+import type { CustomFilterCreateUpdatePayload } from "../models/custom_filter_create_update_payload";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
@@ -33,7 +33,7 @@ export class CustomFilters {
          * The type of custom filter
          */
         filterType?: "conversation" | "contact" | "report";
-    }): Promise<Array<custom_filter>> {
+    }): Promise<Array<CustomFilter>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/custom_filters",
@@ -65,12 +65,12 @@ export class CustomFilters {
          * The numeric ID of the account
          */
         accountId: number;
-        data: custom_filter_create_update_payload;
+        data: CustomFilterCreateUpdatePayload;
         /**
          * The type of custom filter
          */
         filterType?: "conversation" | "contact" | "report";
-    }): Promise<custom_filter> {
+    }): Promise<CustomFilter> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/custom_filters",
@@ -106,7 +106,7 @@ export class CustomFilters {
          * The numeric ID of the custom filter
          */
         customFilterId: number;
-    }): Promise<custom_filter> {
+    }): Promise<CustomFilter> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/custom_filters/{custom_filter_id}",
@@ -141,8 +141,8 @@ export class CustomFilters {
          * The numeric ID of the custom filter
          */
         customFilterId: number;
-        data: custom_filter_create_update_payload;
-    }): Promise<custom_filter> {
+        data: CustomFilterCreateUpdatePayload;
+    }): Promise<CustomFilter> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/custom_filters/{custom_filter_id}",

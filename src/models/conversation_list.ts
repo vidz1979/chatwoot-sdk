@@ -2,11 +2,11 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { conversation } from "./conversation";
-import type { generic_id } from "./generic_id";
-import type { user } from "./user";
+import type { Conversation } from "./conversation";
+import type { GenericId } from "./generic_id";
+import type { User } from "./user";
 
-export type conversation_list = {
+export type ConversationList = {
     data?: {
         meta?: {
             mine_count?: number;
@@ -18,8 +18,8 @@ export type conversation_list = {
          * array of conversations
          */
         payload?: Array<
-            generic_id &
-                conversation & {
+            GenericId &
+                Conversation & {
                     meta?: {
                         sender?: {
                             /**
@@ -39,7 +39,7 @@ export type conversation_list = {
                              */
                             channel?: string;
                         };
-                        assignee?: user;
+                        assignee?: User;
                     };
                 }
         >;

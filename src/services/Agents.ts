@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { agent } from "../models/agent";
+import type { Agent } from "../models/agent";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
@@ -26,7 +26,7 @@ export class Agents {
          * The numeric ID of the account
          */
         accountId: number;
-    }): Promise<Array<agent>> {
+    }): Promise<Array<Agent>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/agents",
@@ -75,7 +75,7 @@ export class Agents {
              */
             auto_offline?: boolean;
         };
-    }): Promise<agent> {
+    }): Promise<Agent> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/agents",
@@ -122,7 +122,7 @@ export class Agents {
              */
             auto_offline?: boolean;
         };
-    }): Promise<agent> {
+    }): Promise<Agent> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/agents/{id}",

@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type public_contact_create_update_payload = {
+export type PublicContactCreateUpdatePayload = {
     /**
      * External identifier of the contact
      */

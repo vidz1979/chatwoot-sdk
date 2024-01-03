@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { message } from "./message";
+import type { Message } from "./message";
 
-export type public_conversation = {
+export type PublicConversation = {
     /**
      * Id of the conversation
      */
@@ -16,7 +16,7 @@ export type public_conversation = {
     /**
      * Messages in the conversation
      */
-    messages?: Array<message>;
+    messages?: Array<Message>;
     /**
      * The contact information associated to the conversation
      */

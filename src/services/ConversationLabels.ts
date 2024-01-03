@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { conversation_labels } from "../models/conversation_labels";
+import type { ConversationLabels } from "../models/conversation_labels";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
@@ -32,7 +32,7 @@ export class ConversationLabels {
          * The numeric ID of the conversation
          */
         conversationId: number;
-    }): Promise<conversation_labels> {
+    }): Promise<ConversationLabels> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}/labels",
@@ -73,7 +73,7 @@ export class ConversationLabels {
              */
             labels?: Array<string>;
         };
-    }): Promise<conversation_labels> {
+    }): Promise<ConversationLabels> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}/labels",

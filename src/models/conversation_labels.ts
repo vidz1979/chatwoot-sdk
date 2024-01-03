@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type conversation_labels = {
+export type ConversationLabels = {
     /**
      * Array of labels
      */

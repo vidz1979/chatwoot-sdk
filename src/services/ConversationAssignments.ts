@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { user } from "../models/user";
+import type { User } from "../models/user";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
@@ -43,7 +43,7 @@ export class ConversationAssignment {
              */
             team_id?: number;
         };
-    }): Promise<user> {
+    }): Promise<User> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}/assignments",

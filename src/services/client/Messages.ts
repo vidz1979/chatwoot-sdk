@@ -1,9 +1,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { public_message } from "../../models/public_message";
-import type { public_message_create_payload } from "../../models/public_message_create_payload";
-import type { public_message_update_payload } from "../../models/public_message_update_payload";
+import type { PublicMessage } from "../../models/public_message";
+import type { PublicMessageCreatePayload } from "../../models/public_message_create_payload";
+import type { PublicMessageUpdatePayload } from "../../models/public_message_update_payload";
 
 import { ChatwootAPIConfig } from "../../core/ChatwootAPI";
 import { request as __request } from "../../core/request";
@@ -42,8 +42,8 @@ export class MessagesApi {
          * The numeric ID of the conversation
          */
         conversationId: number;
-        data: public_message_create_payload;
-    }): Promise<public_message> {
+        data: PublicMessageCreatePayload;
+    }): Promise<PublicMessage> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts/{contact_identifier}/conversations/{conversation_id}/messages",
@@ -82,7 +82,7 @@ export class MessagesApi {
          * The numeric ID of the conversation
          */
         conversationId: number;
-    }): Promise<Array<public_message>> {
+    }): Promise<Array<PublicMessage>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts/{contact_identifier}/conversations/{conversation_id}/messages",
@@ -126,8 +126,8 @@ export class MessagesApi {
          * The numeric ID of the message
          */
         messageId: number;
-        data: public_message_update_payload;
-    }): Promise<public_message> {
+        data: PublicMessageUpdatePayload;
+    }): Promise<PublicMessage> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts/{contact_identifier}/conversations/{conversation_id}/messages/{message_id}",

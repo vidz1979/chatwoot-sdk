@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type automation_rule = {
+export type AutomationRule = {
     /**
      * Automation Rule event, on which we call the actions(conversation_created, conversation_updated, message_created)
      */

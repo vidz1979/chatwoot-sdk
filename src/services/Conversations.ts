@@ -1,10 +1,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { conversation } from "../models/conversation";
-import type { conversation_list } from "../models/conversation_list";
-import type { conversation_show } from "../models/conversation_show";
-import type { conversation_status_toggle } from "../models/conversation_status_toggle";
+import type { Conversation } from "../models/conversation";
+import type { ConversationList } from "../models/conversation_list";
+import type { ConversationShow } from "../models/conversation_show";
+import type { ConversationStatusToggle } from "../models/conversation_status_toggle";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
@@ -113,7 +113,7 @@ export class Conversations {
          * paginate through conversations
          */
         page?: number;
-    }): Promise<conversation_list> {
+    }): Promise<ConversationList> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/conversations",
@@ -186,7 +186,7 @@ export class Conversations {
              */
             team_id?: string;
         };
-    }): Promise<Pick<conversation, "id" | "account_id" | "inbox_id">> {
+    }): Promise<Pick<Conversation, "id" | "account_id" | "inbox_id">> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/conversations",
@@ -235,7 +235,7 @@ export class Conversations {
             query_operator?: "AND" | "OR";
         }>;
         page?: number;
-    }): Promise<conversation_list> {
+    }): Promise<ConversationList> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/conversations/filter",
@@ -246,7 +246,7 @@ export class Conversations {
                 page: page,
             },
             body: {
-                payload
+                payload,
             },
             errors: {
                 400: `Bad Request Error`,
@@ -273,7 +273,7 @@ export class Conversations {
          * The numeric ID of the conversation
          */
         conversationId: number;
-    }): Promise<conversation_show> {
+    }): Promise<ConversationShow> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}",
@@ -314,7 +314,7 @@ export class Conversations {
              */
             status: "open" | "resolved" | "pending";
         };
-    }): Promise<conversation_status_toggle> {
+    }): Promise<ConversationStatusToggle> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}/toggle_status",

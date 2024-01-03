@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { public_conversation } from "../../models/public_conversation";
+import type { PublicConversation } from "../../models/public_conversation";
 
 import { ChatwootAPIConfig } from "../../core/ChatwootAPI";
 import { request as __request } from "../../core/request";
@@ -31,7 +31,7 @@ export class ConversationsApi {
          * The source id of contact obtained on contact create
          */
         contactIdentifier: string;
-    }): Promise<public_conversation> {
+    }): Promise<PublicConversation> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts/{contact_identifier}/conversations",
@@ -63,7 +63,7 @@ export class ConversationsApi {
          * The source id of contact obtained on contact create
          */
         contactIdentifier: string;
-    }): Promise<Array<public_conversation>> {
+    }): Promise<Array<PublicConversation>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts/{contact_identifier}/conversations",

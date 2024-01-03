@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type agent_bot_create_update_payload = {
+export type AgentBotCreateUpdatePayload = {
     /**
      * The name of the agent bot
      */

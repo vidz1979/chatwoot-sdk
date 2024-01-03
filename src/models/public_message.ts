@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type public_message = {
+export type PublicMessage = {
     /**
      * Id of the message
      */

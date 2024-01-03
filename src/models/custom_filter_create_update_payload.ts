@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type custom_filter_create_update_payload = {
+export type CustomFilterCreateUpdatePayload = {
     /**
      * The name of the custom filter
      */

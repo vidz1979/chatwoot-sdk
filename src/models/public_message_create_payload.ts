@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type public_message_create_payload = {
+export type PublicMessageCreatePayload = {
     /**
      * Content for the message
      */

@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type custom_attribute = {
+export type CustomAttribute = {
     /**
      * Identifier
      */

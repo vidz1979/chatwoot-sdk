@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type contact_create = {
+export type ContactCreate = {
     inbox_id: number;
     /**
      * name of the contact

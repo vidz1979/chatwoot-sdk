@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { user } from "../models/user";
+import type { User } from "../models/user";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
@@ -19,7 +19,7 @@ export class Profile {
      * @returns user Success
      * @throws ApiError
      */
-    public profile(): Promise<user> {
+    public profile(): Promise<User> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/profile",

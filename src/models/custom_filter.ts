@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type custom_filter = {
+export type CustomFilter = {
     /**
      * The ID of the custom filter
      */

@@ -1,8 +1,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { public_contact } from "../../models/public_contact";
-import type { public_contact_create_update_payload } from "../../models/public_contact_create_update_payload";
+import type { PublicContact } from "../../models/public_contact";
+import type { PublicContactCreateUpdatePayload } from "../../models/public_contact_create_update_payload";
 
 import { ChatwootAPIConfig } from "../../core/ChatwootAPI";
 import { request as __request } from "../../core/request";
@@ -28,8 +28,8 @@ export class ContactsApi {
          * The identifier obtained from API inbox channel
          */
         inboxIdentifier: string;
-        data: public_contact_create_update_payload;
-    }): Promise<public_contact> {
+        data: PublicContactCreateUpdatePayload;
+    }): Promise<PublicContact> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts",
@@ -61,7 +61,7 @@ export class ContactsApi {
          * The source id of contact obtained on contact create
          */
         contactIdentifier: string;
-    }): Promise<public_contact> {
+    }): Promise<PublicContact> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts/{contact_identifier}",
@@ -95,8 +95,8 @@ export class ContactsApi {
          * The source id of contact obtained on contact create
          */
         contactIdentifier: string;
-        data: public_contact_create_update_payload;
-    }): Promise<public_contact> {
+        data: PublicContactCreateUpdatePayload;
+    }): Promise<PublicContact> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts/{contact_identifier}",

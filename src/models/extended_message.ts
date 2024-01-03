@@ -2,11 +2,11 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { generic_id } from "./generic_id";
-import type { message } from "./message";
+import type { GenericId } from "./generic_id";
+import type { Message } from "./message";
 
-export type extended_message = generic_id &
-    message & {
+export type ExtendedMessage = GenericId &
+    Message & {
         source_id?: number;
         sender?: any;
     };

@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type custom_attribute_create_update_payload = {
+export type CustomAttributeCreateUpdatePayload = {
     /**
      * Attribute display name
      */

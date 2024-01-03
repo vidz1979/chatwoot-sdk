@@ -1,8 +1,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { account_create_update_payload } from "../../models/account_create_update_payload";
-import type { platform_account } from "../../models/platform_account";
+import type { AccountCreateUpdatePayload } from "../../models/account_create_update_payload";
+import type { PlatformAccount } from "../../models/platform_account";
 
 import { ChatwootAPIConfig } from "../../core/ChatwootAPI";
 import { request as __request } from "../../core/request";
@@ -20,7 +20,7 @@ export class Accounts {
      * @returns platform_account Success
      * @throws ApiError
      */
-    public create({ data }: { data: account_create_update_payload }): Promise<platform_account> {
+    public create({ data }: { data: AccountCreateUpdatePayload }): Promise<PlatformAccount> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/platform/api/v1/accounts",
@@ -44,7 +44,7 @@ export class Accounts {
          * The numeric ID of the account
          */
         accountId: number;
-    }): Promise<platform_account> {
+    }): Promise<PlatformAccount> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/platform/api/v1/accounts/{account_id}",
@@ -72,8 +72,8 @@ export class Accounts {
          * The numeric ID of the account
          */
         accountId: number;
-        data: account_create_update_payload;
-    }): Promise<platform_account> {
+        data: AccountCreateUpdatePayload;
+    }): Promise<PlatformAccount> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/platform/api/v1/accounts/{account_id}",

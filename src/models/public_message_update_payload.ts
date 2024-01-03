@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type public_message_update_payload = {
+export type PublicMessageUpdatePayload = {
     /**
      * Replies to the Bot Message Types
      */

@@ -1,8 +1,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { webhook } from "../models/webhook";
-import type { webhook_create_update_payload } from "../models/webhook_create_update_payload";
+import type { Webhook } from "../models/webhook";
+import type { WebhookCreateUpdatePayload } from "../models/webhook_create_update_payload";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
 import { request as __request } from "../core/request";
@@ -27,7 +27,7 @@ export class Webhooks {
          * The numeric ID of the account
          */
         accountId: number;
-    }): Promise<Array<webhook>> {
+    }): Promise<Array<Webhook>> {
         return __request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/webhooks",
@@ -54,8 +54,8 @@ export class Webhooks {
          * The numeric ID of the account
          */
         accountId: number;
-        data: webhook_create_update_payload;
-    }): Promise<webhook> {
+        data: WebhookCreateUpdatePayload;
+    }): Promise<Webhook> {
         return __request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/webhooks",
@@ -88,8 +88,8 @@ export class Webhooks {
          * The numeric ID of the webhook
          */
         webhookId: number;
-        data: webhook_create_update_payload;
-    }): Promise<webhook> {
+        data: WebhookCreateUpdatePayload;
+    }): Promise<Webhook> {
         return __request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/webhooks/{webhook_id}",

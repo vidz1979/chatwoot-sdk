@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type platform_account = {
+export type PlatformAccount = {
     /**
      * Account ID
      */
