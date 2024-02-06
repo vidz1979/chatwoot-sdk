@@ -2,8 +2,6 @@
 /* tslint:disable */
 /* eslint-disable */
 import undici, { Dispatcher } from "undici";
-
-// import type { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import FormData from "form-data";
 
 import { ApiError } from "./ApiError";
@@ -213,13 +211,6 @@ const sendRequest = async <T>(
     formData: FormData | undefined,
     headers: Record<string, string>
 ) => {
-    // const requestConfig: AxiosRequestConfig = {
-    //     url,
-    //     headers,
-    //     data: body ?? formData,
-    //     method: options.method,
-    //     withCredentials: config.with_credentials,
-    // };
     return await undici.request(url, {
         method: options.method,
         headers,
