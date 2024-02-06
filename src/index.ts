@@ -56,6 +56,7 @@ export type { User } from "./models/user";
 export type { UserCreateUpdatePayload } from "./models/user_create_update_payload";
 export type { Webhook } from "./models/webhook";
 export type { WebhookCreateUpdatePayload } from "./models/webhook_create_update_payload";
+export type { ApiRequestOptions } from "./core/ApiRequestOptions";
 
 import { AccountAgentBots } from "./services/AccountAgentBots";
 import { Accounts } from "./services/platform/Accounts";
@@ -85,7 +86,7 @@ import { Webhooks } from "./services/Webhooks";
 
 import { ChatwootAPIConfig } from "./core/ChatwootAPI";
 
-export default class ChatwootClient {
+class ChatwootClient {
     private chatwootAPI: ChatwootAPIConfig;
     public readonly client;
     public readonly platform;
@@ -146,3 +147,6 @@ export default class ChatwootClient {
     public users: Users;
     public webhooks: Webhooks;
 }
+
+export default ChatwootClient;
+export { ChatwootClient };
