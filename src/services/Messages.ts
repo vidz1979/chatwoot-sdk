@@ -7,7 +7,7 @@ import type { GenericId } from "../models/generic_id";
 import type { Message } from "../models/message";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
-import { request as __request } from "../core/request";
+
 import { Blob } from "buffer";
 import { Readable } from "stream";
 import { FileUpload } from "../models/file_upload";
@@ -41,7 +41,7 @@ export class Messages {
          */
         conversationId: number;
     }): Promise<Array<GenericId & Message>> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}/messages",
             path: {
@@ -94,7 +94,7 @@ export class Messages {
                 };
             });
         }
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}/messages",
             path: {
@@ -154,7 +154,7 @@ export class Messages {
                 };
             });
         }
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}/messages/{message_id}",
             path: {
@@ -194,7 +194,7 @@ export class Messages {
          */
         messageId: number;
     }): Promise<any> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}/messages/{message_id}",
             path: {

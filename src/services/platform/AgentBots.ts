@@ -5,7 +5,6 @@ import type { AgentBot } from "../../models/agent_bot";
 import type { AgentBotCreateUpdatePayload } from "../../models/agent_bot_create_update_payload";
 
 import { ChatwootAPIConfig } from "../../core/ChatwootAPI";
-import { request as __request } from "../../core/request";
 
 export class AgentBots {
     private chatwootAPI: ChatwootAPIConfig;
@@ -21,7 +20,7 @@ export class AgentBots {
      * @throws ApiError
      */
     public list(): Promise<Array<AgentBot>> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/platform/api/v1/agent_bots",
             errors: {
@@ -37,7 +36,7 @@ export class AgentBots {
      * @throws ApiError
      */
     public create({ data }: { data: AgentBotCreateUpdatePayload }): Promise<AgentBot> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/platform/api/v1/agent_bots",
             body: data,
@@ -61,7 +60,7 @@ export class AgentBots {
          */
         id: number;
     }): Promise<AgentBot> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/platform/api/v1/agent_bots/{id}",
             path: {
@@ -90,7 +89,7 @@ export class AgentBots {
         id: number;
         data: AgentBotCreateUpdatePayload;
     }): Promise<AgentBot> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "PATCH",
             url: "/platform/api/v1/agent_bots/{id}",
             path: {
@@ -117,7 +116,7 @@ export class AgentBots {
          */
         id: number;
     }): Promise<any> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "DELETE",
             url: "/platform/api/v1/agent_bots/{id}",
             path: {

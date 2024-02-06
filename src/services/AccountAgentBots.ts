@@ -5,7 +5,6 @@ import type { AgentBot } from "../models/agent_bot";
 import type { AgentBotCreateUpdatePayload } from "../models/agent_bot_create_update_payload";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
-import { request as __request } from "../core/request";
 
 export class AccountAgentBots {
     private chatwootAPI: ChatwootAPIConfig;
@@ -28,7 +27,7 @@ export class AccountAgentBots {
          */
         accountId: number;
     }): Promise<Array<AgentBot>> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/agent_bots",
             path: {
@@ -56,7 +55,7 @@ export class AccountAgentBots {
         accountId: number;
         data: AgentBotCreateUpdatePayload;
     }): Promise<AgentBot> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/agent_bots",
             path: {
@@ -88,7 +87,7 @@ export class AccountAgentBots {
          */
         id: number;
     }): Promise<AgentBot> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/agent_bots/{id}",
             path: {
@@ -123,7 +122,7 @@ export class AccountAgentBots {
         id: number;
         data: AgentBotCreateUpdatePayload;
     }): Promise<AgentBot> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/agent_bots/{id}",
             path: {
@@ -156,7 +155,7 @@ export class AccountAgentBots {
          */
         id: number;
     }): Promise<any> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/agent_bots/{id}",
             path: {

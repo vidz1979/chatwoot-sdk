@@ -5,7 +5,6 @@ import type { AccountSummary } from "../models/account_summary";
 import type { AgentConversationMetrics } from "../models/agent_conversation_metrics";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
-import { request as __request } from "../core/request";
 
 export class Reports {
     private chatwootAPI: ChatwootAPIConfig;
@@ -64,7 +63,7 @@ export class Reports {
             timestamp?: number;
         }>
     > {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v2/accounts/{account_id}/reports",
             path: {
@@ -118,7 +117,7 @@ export class Reports {
          */
         until?: string;
     }): Promise<AccountSummary> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v2/accounts/{account_id}/reports/summary",
             path: {
@@ -160,7 +159,7 @@ export class Reports {
         unattended?: number;
         unassigned?: number;
     }> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v2/accounts/{account_id}/reports/conversations",
             path: {
@@ -200,7 +199,7 @@ export class Reports {
          */
         userId?: string;
     }): Promise<Array<AgentConversationMetrics>> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v2/accounts/{account_id}/reports/conversations/",
             path: {

@@ -15,15 +15,16 @@ export type ChatwootAPIConfig = {
     password?: string | Resolver<string>;
     headers?: Headers | Resolver<Headers>;
     encode_path?: (path: string) => string;
+    request(config: ChatwootAPIConfig, options: ApiRequestOptions): Promise<any>;
 };
 
-export const ChatwootAPI: ChatwootAPIConfig = {
-    basePath: "https://app.chatwoot.com",
-    with_credentials: false,
-    credentials: "include",
-    token: undefined,
-    username: undefined,
-    password: undefined,
-    headers: undefined,
-    encode_path: undefined,
-};
+// export const ChatwootAPI: ChatwootAPIConfig = {
+//     basePath: "https://app.chatwoot.com",
+//     with_credentials: false,
+//     credentials: "include",
+//     token: undefined,
+//     username: undefined,
+//     password: undefined,
+//     headers: undefined,
+//     encode_path: undefined,
+// };

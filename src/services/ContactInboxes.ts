@@ -5,7 +5,6 @@ import type { ContactInboxes } from "../models/contact_inboxes";
 import type { ContactableInboxes } from "../models/contactable_inboxes";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
-import { request as __request } from "../core/request";
 
 export class Contact {
     private chatwootAPI: ChatwootAPIConfig;
@@ -44,7 +43,7 @@ export class Contact {
             source_id?: string;
         };
     }): Promise<ContactInboxes> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/contacts/{id}/contact_inboxes",
             path: {
@@ -78,7 +77,7 @@ export class Contact {
          */
         id: number;
     }): Promise<ContactableInboxes> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/contacts/{id}/contactable_inboxes",
             path: {

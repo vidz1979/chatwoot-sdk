@@ -5,7 +5,6 @@ import type { AccountCreateUpdatePayload } from "../../models/account_create_upd
 import type { PlatformAccount } from "../../models/platform_account";
 
 import { ChatwootAPIConfig } from "../../core/ChatwootAPI";
-import { request as __request } from "../../core/request";
 
 export class Accounts {
     private chatwootAPI: ChatwootAPIConfig;
@@ -21,7 +20,7 @@ export class Accounts {
      * @throws ApiError
      */
     public create({ data }: { data: AccountCreateUpdatePayload }): Promise<PlatformAccount> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/platform/api/v1/accounts",
             body: data,
@@ -45,7 +44,7 @@ export class Accounts {
          */
         accountId: number;
     }): Promise<PlatformAccount> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/platform/api/v1/accounts/{account_id}",
             path: {
@@ -74,7 +73,7 @@ export class Accounts {
         accountId: number;
         data: AccountCreateUpdatePayload;
     }): Promise<PlatformAccount> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "PATCH",
             url: "/platform/api/v1/accounts/{account_id}",
             path: {
@@ -101,7 +100,7 @@ export class Accounts {
          */
         accountId: number;
     }): Promise<any> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "DELETE",
             url: "/platform/api/v1/accounts/{account_id}",
             path: {

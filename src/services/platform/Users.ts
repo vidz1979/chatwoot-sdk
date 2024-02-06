@@ -5,7 +5,6 @@ import type { User } from "../../models/user";
 import type { UserCreateUpdatePayload } from "../../models/user_create_update_payload";
 
 import { ChatwootAPIConfig } from "../../core/ChatwootAPI";
-import { request as __request } from "../../core/request";
 
 export class Users {
     private chatwootAPI: ChatwootAPIConfig;
@@ -21,7 +20,7 @@ export class Users {
      * @throws ApiError
      */
     public create({ data }: { data: UserCreateUpdatePayload }): Promise<User> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/platform/api/v1/users",
             body: data,
@@ -45,7 +44,7 @@ export class Users {
          */
         id: number;
     }): Promise<User> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/platform/api/v1/users/{id}",
             path: {
@@ -74,7 +73,7 @@ export class Users {
         id: number;
         data: UserCreateUpdatePayload;
     }): Promise<User> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "PATCH",
             url: "/platform/api/v1/users/{id}",
             path: {
@@ -101,7 +100,7 @@ export class Users {
          */
         id: number;
     }): Promise<any> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "DELETE",
             url: "/platform/api/v1/users/{id}",
             path: {
@@ -133,7 +132,7 @@ export class Users {
          */
         url?: string;
     }> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/platform/api/v1/users/{id}/login",
             path: {

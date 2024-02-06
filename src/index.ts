@@ -1,5 +1,5 @@
 export { ApiError } from "./core/ApiError";
-export { ChatwootAPI } from "./core/ChatwootAPI";
+// export { ChatwootAPI } from "./core/ChatwootAPI";
 export type { ChatwootAPIConfig } from "./core/ChatwootAPI";
 
 export type { Account } from "./models/account";

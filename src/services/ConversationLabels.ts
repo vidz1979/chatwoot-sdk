@@ -4,7 +4,6 @@
 import type { ConversationLabelList } from "../models/conversation_label_list";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
-import { request as __request } from "../core/request";
 
 export class ConversationLabels {
     private chatwootAPI: ChatwootAPIConfig;
@@ -33,7 +32,7 @@ export class ConversationLabels {
          */
         conversationId: number;
     }): Promise<ConversationLabelList> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}/labels",
             path: {
@@ -74,7 +73,7 @@ export class ConversationLabels {
             labels?: ConversationLabelList;
         };
     }): Promise<ConversationLabelList> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}/labels",
             path: {

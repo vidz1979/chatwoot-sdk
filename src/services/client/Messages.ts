@@ -6,7 +6,6 @@ import type { PublicMessageCreatePayload } from "../../models/public_message_cre
 import type { PublicMessageUpdatePayload } from "../../models/public_message_update_payload";
 
 import { ChatwootAPIConfig } from "../../core/ChatwootAPI";
-import { request as __request } from "../../core/request";
 
 /**
  * Messages calls from Client API
@@ -44,7 +43,7 @@ export class MessagesApi {
         conversationId: number;
         data: PublicMessageCreatePayload;
     }): Promise<PublicMessage> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts/{contact_identifier}/conversations/{conversation_id}/messages",
             path: {
@@ -83,7 +82,7 @@ export class MessagesApi {
          */
         conversationId: number;
     }): Promise<Array<PublicMessage>> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts/{contact_identifier}/conversations/{conversation_id}/messages",
             path: {
@@ -128,7 +127,7 @@ export class MessagesApi {
         messageId: number;
         data: PublicMessageUpdatePayload;
     }): Promise<PublicMessage> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "PATCH",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts/{contact_identifier}/conversations/{conversation_id}/messages/{message_id}",
             path: {

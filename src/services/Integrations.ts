@@ -7,7 +7,6 @@ import type { IntegrationsHookCreatePayload } from "../models/integrations_hook_
 import type { IntegrationsHookUpdatePayload } from "../models/integrations_hook_update_payload";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
-import { request as __request } from "../core/request";
 
 export class Integrations {
     private chatwootAPI: ChatwootAPIConfig;
@@ -30,7 +29,7 @@ export class Integrations {
          */
         accountId: number;
     }): Promise<Array<IntegrationsApp>> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/integrations/apps",
             path: {
@@ -59,7 +58,7 @@ export class Integrations {
         accountId: number;
         data: IntegrationsHookCreatePayload;
     }): Promise<IntegrationsHook> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/integrations/hooks",
             path: {
@@ -93,7 +92,7 @@ export class Integrations {
         hookId: number;
         data: IntegrationsHookUpdatePayload;
     }): Promise<IntegrationsHook> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/integrations/hooks/{hook_id}",
             path: {
@@ -126,7 +125,7 @@ export class Integrations {
          */
         hookId: number;
     }): Promise<any> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/integrations/hooks/{hook_id}",
             path: {

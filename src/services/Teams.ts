@@ -6,7 +6,6 @@ import type { Team } from "../models/team";
 import type { TeamCreateUpdatePayload } from "../models/team_create_update_payload";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
-import { request as __request } from "../core/request";
 
 export class Teams {
     private chatwootAPI: ChatwootAPIConfig;
@@ -29,7 +28,7 @@ export class Teams {
          */
         accountId: number;
     }): Promise<Array<Team>> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/teams",
             path: {
@@ -57,7 +56,7 @@ export class Teams {
         accountId: number;
         data: TeamCreateUpdatePayload;
     }): Promise<Team> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/teams",
             path: {
@@ -89,7 +88,7 @@ export class Teams {
          */
         teamId: number;
     }): Promise<Team> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/teams/{team_id}",
             path: {
@@ -124,7 +123,7 @@ export class Teams {
         teamId: number;
         data: TeamCreateUpdatePayload;
     }): Promise<Team> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/teams/{team_id}",
             path: {
@@ -157,7 +156,7 @@ export class Teams {
          */
         teamId: number;
     }): Promise<any> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/teams/{team_id}",
             path: {
@@ -190,7 +189,7 @@ export class Teams {
          */
         teamId: number;
     }): Promise<Array<Agent>> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/accounts/{account_id}/teams/{team_id}/team_members",
             path: {
@@ -230,7 +229,7 @@ export class Teams {
             user_ids: Array<number>;
         };
     }): Promise<Array<Agent>> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/accounts/{account_id}/teams/{team_id}/team_members",
             path: {
@@ -272,7 +271,7 @@ export class Teams {
             user_ids: Array<number>;
         };
     }): Promise<Array<Agent>> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "PATCH",
             url: "/accounts/{account_id}/teams/{team_id}/team_members",
             path: {
@@ -314,7 +313,7 @@ export class Teams {
             user_ids: Array<number>;
         };
     }): Promise<any> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "DELETE",
             url: "/accounts/{account_id}/teams/{team_id}/team_members",
             path: {

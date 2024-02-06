@@ -4,7 +4,6 @@
 import type { PublicConversation } from "../../models/public_conversation";
 
 import { ChatwootAPIConfig } from "../../core/ChatwootAPI";
-import { request as __request } from "../../core/request";
 
 export class ConversationsApi {
     private chatwootAPI: ChatwootAPIConfig;
@@ -32,7 +31,7 @@ export class ConversationsApi {
          */
         contactIdentifier: string;
     }): Promise<PublicConversation> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts/{contact_identifier}/conversations",
             path: {
@@ -64,7 +63,7 @@ export class ConversationsApi {
          */
         contactIdentifier: string;
     }): Promise<Array<PublicConversation>> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/public/api/v1/inboxes/{inbox_identifier}/contacts/{contact_identifier}/conversations",
             path: {

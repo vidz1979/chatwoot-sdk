@@ -5,7 +5,6 @@ import type { CannedResponse } from "../models/canned_response";
 import type { CannedResponseCreateUpdatePayload } from "../models/canned_response_create_update_payload";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
-import { request as __request } from "../core/request";
 
 export class CannedResponses {
     private chatwootAPI: ChatwootAPIConfig;
@@ -28,7 +27,7 @@ export class CannedResponses {
          */
         accountId: number;
     }): Promise<Array<CannedResponse>> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/canned_responses",
             path: {
@@ -56,7 +55,7 @@ export class CannedResponses {
         accountId: number;
         data: CannedResponseCreateUpdatePayload;
     }): Promise<CannedResponse> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/canned_responses",
             path: {
@@ -89,7 +88,7 @@ export class CannedResponses {
         id: number;
         data: CannedResponseCreateUpdatePayload;
     }): Promise<CannedResponse> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/canned_responses/{id}",
             path: {
@@ -122,7 +121,7 @@ export class CannedResponses {
          */
         id: number;
     }): Promise<any> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/canned_responses/{id}",
             path: {

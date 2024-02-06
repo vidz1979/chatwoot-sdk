@@ -4,7 +4,6 @@
 import type { Agent } from "../models/agent";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
-import { request as __request } from "../core/request";
 
 export class Agents {
     private chatwootAPI: ChatwootAPIConfig;
@@ -27,7 +26,7 @@ export class Agents {
          */
         accountId: number;
     }): Promise<Array<Agent>> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/agents",
             path: {
@@ -76,7 +75,7 @@ export class Agents {
             auto_offline?: boolean;
         };
     }): Promise<Agent> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/agents",
             path: {
@@ -123,7 +122,7 @@ export class Agents {
             auto_offline?: boolean;
         };
     }): Promise<Agent> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/agents/{id}",
             path: {
@@ -157,7 +156,7 @@ export class Agents {
          */
         id: number;
     }): Promise<any> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/agents/{id}",
             path: {

@@ -5,7 +5,6 @@ import type { CustomAttribute } from "../models/custom_attribute";
 import type { CustomAttributeCreateUpdatePayload } from "../models/custom_attribute_create_update_payload";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
-import { request as __request } from "../core/request";
 
 export class CustomAttributes {
     private chatwootAPI: ChatwootAPIConfig;
@@ -34,7 +33,7 @@ export class CustomAttributes {
          */
         attributeModel: "0" | "1";
     }): Promise<Array<CustomAttribute>> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/custom_attribute_definitions",
             path: {
@@ -66,7 +65,7 @@ export class CustomAttributes {
         accountId: number;
         data: CustomAttributeCreateUpdatePayload;
     }): Promise<CustomAttribute> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/custom_attribute_definitions",
             path: {
@@ -99,7 +98,7 @@ export class CustomAttributes {
          */
         id: number;
     }): Promise<CustomAttribute> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/custom_attribute_definitions/{id}",
             path: {
@@ -135,7 +134,7 @@ export class CustomAttributes {
         id: number;
         data: CustomAttributeCreateUpdatePayload;
     }): Promise<CustomAttribute> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/custom_attribute_definitions/{id}",
             path: {
@@ -170,7 +169,7 @@ export class CustomAttributes {
          */
         id: number;
     }): Promise<any> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/custom_attribute_definitions/{id}",
             path: {

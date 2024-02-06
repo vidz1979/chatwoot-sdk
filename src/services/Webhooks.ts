@@ -5,7 +5,6 @@ import type { Webhook } from "../models/webhook";
 import type { WebhookCreateUpdatePayload } from "../models/webhook_create_update_payload";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
-import { request as __request } from "../core/request";
 
 export class Webhooks {
     private chatwootAPI: ChatwootAPIConfig;
@@ -28,7 +27,7 @@ export class Webhooks {
          */
         accountId: number;
     }): Promise<Array<Webhook>> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/webhooks",
             path: {
@@ -56,7 +55,7 @@ export class Webhooks {
         accountId: number;
         data: WebhookCreateUpdatePayload;
     }): Promise<Webhook> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/webhooks",
             path: {
@@ -90,7 +89,7 @@ export class Webhooks {
         webhookId: number;
         data: WebhookCreateUpdatePayload;
     }): Promise<Webhook> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/webhooks/{webhook_id}",
             path: {
@@ -123,7 +122,7 @@ export class Webhooks {
          */
         webhookId: number;
     }): Promise<any> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/webhooks/{webhook_id}",
             path: {

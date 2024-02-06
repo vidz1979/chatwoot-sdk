@@ -5,7 +5,6 @@ import type { AutomationRule } from "../models/automation_rule";
 import type { AutomationRuleCreateUpdatePayload } from "../models/automation_rule_create_update_payload";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
-import { request as __request } from "../core/request";
 
 export class AutomationRules {
     private chatwootAPI: ChatwootAPIConfig;
@@ -33,7 +32,7 @@ export class AutomationRules {
          */
         page?: number;
     }): Promise<Array<AutomationRule>> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/automation_rules",
             path: {
@@ -64,7 +63,7 @@ export class AutomationRules {
         accountId: number;
         data: AutomationRuleCreateUpdatePayload;
     }): Promise<AutomationRule> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/automation_rules",
             path: {
@@ -96,7 +95,7 @@ export class AutomationRules {
          */
         id: number;
     }): Promise<AutomationRule> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/automation_rules/{id}",
             path: {
@@ -131,7 +130,7 @@ export class AutomationRules {
         id: number;
         data: AutomationRuleCreateUpdatePayload;
     }): Promise<AutomationRule> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/automation_rules/{id}",
             path: {
@@ -165,7 +164,7 @@ export class AutomationRules {
          */
         id: number;
     }): Promise<any> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/automation_rules/{id}",
             path: {

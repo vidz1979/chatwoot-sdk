@@ -5,7 +5,6 @@ import type { CustomFilter } from "../models/custom_filter";
 import type { CustomFilterCreateUpdatePayload } from "../models/custom_filter_create_update_payload";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
-import { request as __request } from "../core/request";
 
 export class CustomFilters {
     private chatwootAPI: ChatwootAPIConfig;
@@ -34,7 +33,7 @@ export class CustomFilters {
          */
         filterType?: "conversation" | "contact" | "report";
     }): Promise<Array<CustomFilter>> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/custom_filters",
             path: {
@@ -71,7 +70,7 @@ export class CustomFilters {
          */
         filterType?: "conversation" | "contact" | "report";
     }): Promise<CustomFilter> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/custom_filters",
             path: {
@@ -107,7 +106,7 @@ export class CustomFilters {
          */
         customFilterId: number;
     }): Promise<CustomFilter> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/custom_filters/{custom_filter_id}",
             path: {
@@ -143,7 +142,7 @@ export class CustomFilters {
         customFilterId: number;
         data: CustomFilterCreateUpdatePayload;
     }): Promise<CustomFilter> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "PATCH",
             url: "/api/v1/accounts/{account_id}/custom_filters/{custom_filter_id}",
             path: {
@@ -177,7 +176,7 @@ export class CustomFilters {
          */
         customFilterId: number;
     }): Promise<any> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "DELETE",
             url: "/api/v1/accounts/{account_id}/custom_filters/{custom_filter_id}",
             path: {

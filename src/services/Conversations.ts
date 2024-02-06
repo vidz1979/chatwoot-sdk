@@ -7,7 +7,6 @@ import type { ConversationShow } from "../models/conversation_show";
 import type { ConversationStatusToggle } from "../models/conversation_status_toggle";
 
 import { ChatwootAPIConfig } from "../core/ChatwootAPI";
-import { request as __request } from "../core/request";
 
 export class Conversations {
     private chatwootAPI: ChatwootAPIConfig;
@@ -54,7 +53,7 @@ export class Conversations {
             all_count?: number;
         };
     }> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/conversations/meta",
             path: {
@@ -114,7 +113,7 @@ export class Conversations {
          */
         page?: number;
     }): Promise<ConversationList> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/conversations",
             path: {
@@ -187,7 +186,7 @@ export class Conversations {
             team_id?: string;
         };
     }): Promise<Pick<Conversation, "id" | "account_id" | "inbox_id">> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/conversations",
             path: {
@@ -236,7 +235,7 @@ export class Conversations {
         }>;
         page?: number;
     }): Promise<ConversationList> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/conversations/filter",
             path: {
@@ -274,7 +273,7 @@ export class Conversations {
          */
         conversationId: number;
     }): Promise<ConversationShow> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}",
             path: {
@@ -315,7 +314,7 @@ export class Conversations {
             status: "open" | "resolved" | "pending";
         };
     }): Promise<ConversationStatusToggle> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/api/v1/accounts/{account_id}/conversations/{conversation_id}/toggle_status",
             path: {

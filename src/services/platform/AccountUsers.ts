@@ -2,7 +2,6 @@
 /* tslint:disable */
 /* eslint-disable */
 import { ChatwootAPIConfig } from "../../core/ChatwootAPI";
-import { request as __request } from "../../core/request";
 
 export class AccountUsers {
     private chatwootAPI: ChatwootAPIConfig;
@@ -40,7 +39,7 @@ export class AccountUsers {
             role?: string;
         }>
     > {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "GET",
             url: "/platform/api/v1/accounts/{account_id}/account_users",
             path: {
@@ -77,7 +76,7 @@ export class AccountUsers {
             role: string;
         };
     }): Promise<any> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "POST",
             url: "/platform/api/v1/accounts/{account_id}/account_users",
             path: {
@@ -111,7 +110,7 @@ export class AccountUsers {
             user_id: number;
         };
     }): Promise<any> {
-        return __request(this.chatwootAPI, {
+        return this.chatwootAPI.request(this.chatwootAPI, {
             method: "DELETE",
             url: "/platform/api/v1/accounts/{account_id}/account_users",
             path: {
