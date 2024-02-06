@@ -1,8 +1,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import axios from "axios";
-import type { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
+import undici, { Dispatcher } from "undici";
+
+// import type { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import FormData from "form-data";
 
 import { ApiError } from "./ApiError";
@@ -211,27 +212,22 @@ const sendRequest = async <T>(
     body: any,
     formData: FormData | undefined,
     headers: Record<string, string>
-): Promise<AxiosResponse<T>> => {
-    const requestConfig: AxiosRequestConfig = {
-        url,
-        headers,
-        data: body ?? formData,
+) => {
+    // const requestConfig: AxiosRequestConfig = {
+    //     url,
+    //     headers,
+    //     data: body ?? formData,
+    //     method: options.method,
+    //     withCredentials: config.with_credentials,
+    // };
+    return await undici.request(url, {
         method: options.method,
-        withCredentials: config.with_credentials,
-    };
-
-    try {
-        return await axios.request(requestConfig);
-    } catch (error) {
-        const axiosError = error as AxiosError<T>;
-        if (axiosError.response) {
-            return axiosError.response;
-        }
-        throw error;
-    }
+        headers,
+        body: body ?? formData,
+    });
 };
 
-const getResponseHeader = (response: AxiosResponse<any>, responseHeader?: string): string | undefined => {
+const getResponseHeader = (response: Dispatcher.ResponseData, responseHeader?: string): string | undefined => {
     if (responseHeader) {
         const content = response.headers[responseHeader];
         if (isString(content)) {
@@ -241,12 +237,12 @@ const getResponseHeader = (response: AxiosResponse<any>, responseHeader?: string
     return undefined;
 };
 
-const getResponseBody = (response: AxiosResponse<any>): any => {
-    if (response.status !== 204) {
-        return response.data;
-    }
-    return undefined;
-};
+// const getResponseBody = (response: Dispatcher.ResponseData): any => {
+//     if (response.statusCode !== 204) {
+//         return response.body.json();
+//     }
+//     return undefined;
+// };
 
 const catchErrorCodes = (options: ApiRequestOptions, result: ApiResult): void => {
     const errors: Record<number, string> = {
@@ -286,15 +282,16 @@ export const request = <T>(config: ChatwootAPIConfig, options: ApiRequestOptions
             const headers = await getHeaders(config, options, formData);
 
             const response = await sendRequest<T>(config, options, url, body, formData, headers);
-            const responseBody = getResponseBody(response);
+
+            // const responseBody = getResponseBody(response);
             const responseHeader = getResponseHeader(response, options.responseHeader);
 
             const result: ApiResult = {
                 url,
-                ok: isSuccess(response.status),
-                status: response.status,
-                statusText: response.statusText,
-                body: responseHeader ?? responseBody,
+                ok: isSuccess(response.statusCode),
+                status: response.statusCode,
+                statusText: response.statusCode.toString(),
+                body: responseHeader ?? (response.body.json() as T),
             };
 
             catchErrorCodes(options, result);
