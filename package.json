@@ -1,6 +1,6 @@
 {
   "name": "@jrvidotti/chatwoot-sdk-2",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "description": "SDK for JS/Typescript for Chatwoot.",
   "repository": {
     "type": "git",
